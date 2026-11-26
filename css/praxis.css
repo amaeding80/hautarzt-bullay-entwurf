@@ -234,3 +234,7 @@ img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
 
 /* vCard nur auf Handy/Tablet, am Computer bringt das nichts */
 @media (hover: hover) and (pointer: fine) { .nur-handy { display: none; } }
+
+/* Zeile praxisecht im Fuß */
+.fuss { flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
+.fuss { padding-bottom: 100px; } /* Platz für festen Knopf */
