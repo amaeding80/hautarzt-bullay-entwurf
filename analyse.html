@@ -39,7 +39,31 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 .k1:hover { background: #22324c; }
 .k2 { border: 1px solid #0F1B2E; }
 .k2:hover { background: #fff; }
+.k2 svg { vertical-align: -3px; margin-right: 4px; }
 @media (max-width: 600px) { .knoepfe a { display: block; text-align: center; margin: 0 0 10px; } }
+/* Termin-Fenster */
+#termin { border: 0; border-radius: 8px; padding: 0; width: 440px; max-width: calc(100vw - 24px); background: #fff; color: #0F1B2E; box-shadow: 0 20px 60px rgba(0,0,0,.45); }
+#termin::backdrop { background: rgba(8,14,24,.7); }
+#termin .t-kopf { background: #F4F0E8; border-bottom: 1px solid #ddd6c8; padding: 16px 22px; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+#termin .t-kopf b { font-weight: 500; font-size: 20px; }
+#termin .t-kopf span { font-size: 13px; opacity: .65; }
+#termin .t-inhalt { padding: 18px 22px 8px; }
+#termin label.slot { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid #ddd6c8; border-radius: 4px; margin-bottom: 8px; cursor: pointer; font-size: 16px; }
+#termin label.slot:hover { border-color: #0F1B2E; }
+#termin input[type=radio] { accent-color: #0F1B2E; width: 17px; height: 17px; margin: 0; }
+#termin .feld { margin-bottom: 12px; }
+#termin .feld span { display: block; font-size: 14px; margin-bottom: 4px; }
+#termin .feld input { width: 100%; box-sizing: border-box; font: inherit; padding: 9px 11px; border: 1px solid #ddd6c8; border-radius: 4px; }
+#termin .feld input:focus { outline: 2px solid #0F1B2E; outline-offset: -1px; }
+#termin .gewaehlt { font-size: 15px; background: #F4F0E8; padding: 8px 12px; border-radius: 4px; margin: 0 0 14px; }
+#termin .t-fuss { display: flex; justify-content: space-between; align-items: center; padding: 6px 22px 18px; }
+#termin .t-fuss button { font: inherit; font-size: 15px; cursor: pointer; }
+#termin .zurueck { background: none; border: 0; padding: 8px 0; text-decoration: underline; text-underline-offset: 3px; color: #0F1B2E; }
+#termin .weiter { background: #0F1B2E; color: #F4F0E8; border: 0; border-radius: 3px; padding: 11px 18px; }
+#termin .weiter:hover { background: #22324c; }
+#termin .fehler { color: #7A2E2A; font-size: 14px; min-height: 20px; margin: 0; }
+#termin .klein { font-size: 13px; opacity: .65; }
+#termin .t2, #termin .t3 { display: none; }
 </style>
 </head>
 <body>
@@ -50,7 +74,7 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 <h1>Ihre jetzige Seite, kurz von außen angesehen</h1>
 <p class="einstieg">Ich weiß, dass die jetzige Seite nur als Übergang gedacht war. Sie steht seit dem 23. Mai so. Hier ist, was einem Patienten heute beim ersten Besuch auffällt, nur das, was man auf der Seite sieht.</p>
 
-<p class="kurz">Lieber gleich sprechen? <a href="https://calendly.com/amaeding/30min?hide_gdpr_banner=1&amp;primary_color=0f1b2e" target="_blank" rel="noopener">Termin buchen</a> oder <a href="https://wa.me/4917643433973?text=Hallo%20Herr%20M%C3%A4ding%2C%20ich%20habe%20Ihren%20Entwurf%20f%C3%BCr%20hautarzt-bullay.de%20gesehen." target="_blank" rel="noopener">WhatsApp</a></p>
+<p class="kurz">Lieber gleich sprechen? <a href="#termin" class="zum-termin">Termin buchen</a> oder <a href="#" class="wa">WhatsApp</a></p>
 
 <div class="punkt">
   <h2>Die Seite sagt selbst, dass sie noch nicht fertig ist</h2>
@@ -89,15 +113,110 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 
 <div class="schluss">
   <p>Das alles ist schnell behoben. Wenn Sie darüber sprechen möchten:</p>
-  <p class="knoepfe"><a href="https://calendly.com/amaeding/30min?hide_gdpr_banner=1&amp;primary_color=0f1b2e" class="k1" target="_blank" rel="noopener">Termin buchen</a> <a href="https://wa.me/4917643433973?text=Hallo%20Herr%20M%C3%A4ding%2C%20ich%20habe%20Ihren%20Entwurf%20f%C3%BCr%20hautarzt-bullay.de%20gesehen." class="k2" target="_blank" rel="noopener">WhatsApp</a></p>
-  <p>Alexander Mäding, praxisecht.de<br>Tel. 0176 43433973 · <a href="mailto:anfrage@praxisecht.de">anfrage@praxisecht.de</a></p>
+  <p class="knoepfe"><a href="#termin" class="k1 zum-termin">Termin buchen</a> <a href="#" class="k2 wa"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19z"/></svg> WhatsApp</a></p>
+  <p>Alexander Mäding, praxisecht.de<br><a href="mailto:anfrage@praxisecht.de">anfrage@praxisecht.de</a></p>
 </div>
 
 <p class="fuss">Stand: 26. November 2026. Bilder: eigene Aufnahmen von hautarzt-bullay.de. <a href="index.html">Zum Entwurf</a></p>
 </div>
+
+<!-- Termin direkt buchen (auch über analyse.html#termin) -->
+<dialog id="termin">
+  <div class="t-kopf"><b>Wann passt es Ihnen?</b> <span>30 Minuten, per Video</span></div>
+  <div class="t1">
+    <div class="t-inhalt"><div id="slots"><p class="klein">Freie Termine werden geladen …</p></div><p class="fehler" id="f1"></p></div>
+    <div class="t-fuss"><button type="button" class="zurueck" data-zu>Schließen</button> <button type="button" class="weiter" id="weiter1">Weiter</button></div>
+  </div>
+  <div class="t2">
+    <div class="t-inhalt">
+      <p class="gewaehlt" id="gewaehlt"></p>
+      <label class="feld"><span>Vorname</span><input type="text" id="vorname" autocomplete="given-name"></label>
+      <label class="feld nur-buchen"><span>E-Mail</span><input type="email" id="email" autocomplete="email"></label>
+      <input type="text" id="hp" tabindex="-1" autocomplete="off" style="display:none">
+      <p class="fehler" id="f2"></p>
+      <p class="klein nur-buchen">Die Bestätigung kommt per E-Mail.</p><p class="klein ohne-buchen">Der Termin geht per WhatsApp an mich, ich bestätige ihn kurz.</p>
+    </div>
+    <div class="t-fuss"><button type="button" class="zurueck" id="zurueck2">Zurück</button> <button type="button" class="weiter" id="buchen">Termin verbindlich buchen</button></div>
+  </div>
+  <div class="t3">
+    <div class="t-inhalt"><p style="font-size:20px;margin:0 0 8px">Danke, der Termin ist gebucht.</p><p id="danke-text"></p><p class="klein">Sie bekommen gleich eine E-Mail mit allen Angaben.</p></div>
+    <div class="t-fuss"><span></span><button type="button" class="weiter" data-zu>Schließen</button></div>
+  </div>
+</dialog>
 <script>
 // Bilder: kein Rechtsklick, kein Ziehen
 document.querySelectorAll('img').forEach(function (i) { i.oncontextmenu = function () { return false }; i.ondragstart = function () { return false } })
+
+
+// WhatsApp: Nummer steht nur hier, nicht sichtbar auf der Seite
+var waNr = '4917643433973'
+function whatsapp(text) { window.open('https://wa.me/' + waNr + '?text=' + encodeURIComponent(text), '_blank') }
+document.querySelectorAll('.wa').forEach(function (a) {
+  a.onclick = function (e) { e.preventDefault(); whatsapp('Hallo Herr Mäding, ich habe Ihren Entwurf für hautarzt-bullay.de gesehen.') }
+})
+
+// Termin-Fenster: Termine wie auf praxisecht.de, frühestens in 3 Tagen
+var buchen = false // erst true, wenn praxisecht.de die Anfrage von hier annimmt
+var fenster = document.getElementById('termin'), start = 0
+fenster.querySelectorAll(buchen ? '.ohne-buchen' : '.nur-buchen').forEach(function (x) { x.style.display = 'none' })
+if (!buchen) document.getElementById('buchen').textContent = 'Termin per WhatsApp schicken'
+var zeiten = { 1: ['10:00', '15:30'], 2: ['10:00', '15:30'], 3: ['09:30', '14:00'], 4: ['11:00', '15:00'] }
+var wt = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'], mon = ['Jan.', 'Feb.', 'Mär.', 'Apr.', 'Mai', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Okt.', 'Nov.', 'Dez.']
+function selbstRechnen() {
+  var s = [], d = new Date(); d.setHours(0, 0, 0, 0); d.setDate(d.getDate() + 3)
+  for (var v = 0; s.length < 6 && v < 60; v++) {
+    (zeiten[d.getDay()] || []).forEach(function (z) { if (s.length < 6) s.push(wt[d.getDay()] + '. ' + d.getDate() + '. ' + mon[d.getMonth()] + ' · ' + z + ' Uhr') })
+    d.setDate(d.getDate() + 1)
+  }
+  return s
+}
+function zeigeSlots(s) {
+  var html = ''
+  s.forEach(function (t) { html += '<label class="slot"><input type="radio" name="slot" value="' + t + '"> ' + t + '</label>' })
+  document.getElementById('slots').innerHTML = html
+}
+function schritt(n) {
+  for (var i = 1; i <= 3; i++) fenster.querySelector('.t' + i).style.display = i == n ? 'block' : 'none'
+  fenster.querySelector('.t-kopf b').textContent = n == 2 ? 'Wie darf ich Sie ansprechen?' : n == 3 ? 'Termin gebucht' : 'Wann passt es Ihnen?'
+}
+function auf() {
+  start = Date.now(); schritt(1)
+  document.getElementById('f1').textContent = ''
+  if (!fenster.open) fenster.showModal()
+  fetch('https://praxisecht.de/slots.php').then(function (r) { return r.json() })
+    .then(function (s) { zeigeSlots(Array.isArray(s) && s.length ? s : selbstRechnen()) })
+    .catch(function () { zeigeSlots(selbstRechnen()) })
+}
+document.querySelectorAll('.zum-termin').forEach(function (a) { a.onclick = function (e) { e.preventDefault(); auf() } })
+fenster.querySelectorAll('[data-zu]').forEach(function (b) { b.onclick = function () { fenster.close() } })
+fenster.onclick = function (e) { if (e.target == fenster) fenster.close() }
+document.getElementById('weiter1').onclick = function () {
+  var r = fenster.querySelector('[name=slot]:checked')
+  if (!r) { document.getElementById('f1').textContent = 'Bitte einen Termin wählen.'; return }
+  document.getElementById('gewaehlt').textContent = 'Ihr Termin: ' + r.value
+  schritt(2); document.getElementById('vorname').focus()
+}
+document.getElementById('zurueck2').onclick = function () { schritt(1) }
+document.getElementById('buchen').onclick = function () {
+  var vn = document.getElementById('vorname'), em = document.getElementById('email'), f = document.getElementById('f2')
+  if (!vn.value.trim()) { f.textContent = 'Bitte Ihren Vornamen eintragen.'; vn.focus(); return }
+  if (buchen && (!em.value.trim() || !em.validity.valid)) { f.textContent = 'Bitte eine gültige E-Mail eintragen.'; em.focus(); return }
+  f.textContent = ''
+  if (document.getElementById('hp').value) return
+  var termin = fenster.querySelector('[name=slot]:checked').value
+  if (!buchen) { whatsapp('Hallo Herr Mäding, ich hätte gern den Termin ' + termin + '. Viele Grüße, ' + vn.value.trim()); fenster.close(); return }
+  var fd = new FormData()
+  fd.append('hp_ms', String(Date.now() - start)); fd.append('wiz-hp', '')
+  fd.append('vorname', vn.value.trim()); fd.append('email', em.value.trim()); fd.append('termin', termin)
+  fd.append('anfrage_art', 'webseite'); fd.append('website_hat', 'direkt')
+  fd.append('notiz', 'Direkt zum Termin (hautarzt-bullay Analyse)')
+  fetch('https://praxisecht.de/sende-anfrage.php', { method: 'POST', body: fd }).catch(function () {})
+  document.getElementById('danke-text').textContent = 'Ihr Termin: ' + termin
+  schritt(3)
+}
+// Link analyse.html#termin öffnet das Fenster gleich
+if (location.hash == '#termin') auf()
+window.onhashchange = function () { if (location.hash == '#termin') auf() }
 </script>
 </body>
 </html>
