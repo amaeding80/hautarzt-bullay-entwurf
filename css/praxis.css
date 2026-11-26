@@ -174,3 +174,10 @@ dialog::backdrop { background: rgba(15,27,46,.55); }
 .online small { font-size: .8em; font-weight: 400; opacity: .75; }
 .foto img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; pointer-events: none; }
 @media (max-width: 600px) { .anruf .online { white-space: nowrap; } }
+
+/* Nachtrag: Pop-up hell, damit es sich vom nachtblauen Streifen abhebt */
+dialog { background: #fff; box-shadow: 0 0 0 1px #F4F0E8, 0 20px 60px rgba(0,0,0,.55); }
+dialog::backdrop { background: rgba(8,14,24,.78); }
+.demo-kopf { background: #F4F0E8; color: #0F1B2E; border-bottom: 1px solid #ddd6c8; }
+#zu { color: #0F1B2E; border-color: #0F1B2E; }
+.wahl, .antwort { background: #F4F0E8; }
