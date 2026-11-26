@@ -31,6 +31,15 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
   .einstieg { font-size: 17px; }
   .punkt .schmal img { max-width: 70%; }
 }
+.kurz { font-size: 15px; margin: 6px 0 0; opacity: .85; }
+/* Knöpfe für Termin und WhatsApp */
+.knoepfe { margin: 18px 0 26px; }
+.knoepfe a { display: inline-block; padding: 12px 20px; border-radius: 3px; text-decoration: none; font-weight: 500; margin: 0 10px 10px 0; }
+.k1 { background: #0F1B2E; color: #F4F0E8 !important; }
+.k1:hover { background: #22324c; }
+.k2 { border: 1px solid #0F1B2E; }
+.k2:hover { background: #fff; }
+@media (max-width: 600px) { .knoepfe a { display: block; text-align: center; margin: 0 0 10px; } }
 </style>
 </head>
 <body>
@@ -40,6 +49,8 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 
 <h1>Ihre jetzige Seite, kurz von außen angesehen</h1>
 <p class="einstieg">Ich weiß, dass die jetzige Seite nur als Übergang gedacht war. Sie steht seit dem 23. Mai so. Hier ist, was einem Patienten heute beim ersten Besuch auffällt, nur das, was man auf der Seite sieht.</p>
+
+<p class="kurz">Lieber gleich sprechen? <a href="https://calendly.com/amaeding/30min?hide_gdpr_banner=1&amp;primary_color=0f1b2e" target="_blank" rel="noopener">Termin buchen</a> oder <a href="https://wa.me/4917643433973?text=Hallo%20Herr%20M%C3%A4ding%2C%20ich%20habe%20Ihren%20Entwurf%20f%C3%BCr%20hautarzt-bullay.de%20gesehen." target="_blank" rel="noopener">WhatsApp</a></p>
 
 <div class="punkt">
   <h2>Die Seite sagt selbst, dass sie noch nicht fertig ist</h2>
@@ -77,8 +88,9 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 </div>
 
 <div class="schluss">
-  <p>Das alles ist schnell behoben. Wenn Sie mögen, sprechen wir kurz darüber.</p>
-  <p>Alexander Mäding, praxisecht.de</p>
+  <p>Das alles ist schnell behoben. Wenn Sie darüber sprechen möchten:</p>
+  <p class="knoepfe"><a href="https://calendly.com/amaeding/30min?hide_gdpr_banner=1&amp;primary_color=0f1b2e" class="k1" target="_blank" rel="noopener">Termin buchen</a> <a href="https://wa.me/4917643433973?text=Hallo%20Herr%20M%C3%A4ding%2C%20ich%20habe%20Ihren%20Entwurf%20f%C3%BCr%20hautarzt-bullay.de%20gesehen." class="k2" target="_blank" rel="noopener">WhatsApp</a></p>
+  <p>Alexander Mäding, praxisecht.de<br>Tel. 0176 43433973 · <a href="mailto:anfrage@praxisecht.de">anfrage@praxisecht.de</a></p>
 </div>
 
 <p class="fuss">Stand: 26. November 2026. Bilder: eigene Aufnahmen von hautarzt-bullay.de. <a href="index.html">Zum Entwurf</a></p>
