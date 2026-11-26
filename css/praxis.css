@@ -238,3 +238,7 @@ img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
 /* Zeile praxisecht im Fuß */
 .fuss { flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
 .fuss { padding-bottom: 100px; } /* Platz für festen Knopf */
+
+/* kleine Zeile unter der Headline */
+h1 { margin-bottom: 8px; }
+.fuer { margin: 0 0 22px; font-size: 16px; opacity: .7; }
