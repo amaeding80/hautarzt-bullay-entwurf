@@ -1,0 +1,521 @@
+/* Praxis Brecht */
+
+:root {
+  --stein: #F4F0E8;
+  --nacht: #0F1B2E;
+  --akzent: #A9772E; /* Messing - auf Stein nur groß oder als Linie (Kontrast 3,4) */
+  --linie: rgba(15, 27, 46, .14);
+  --rand: 1200px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--stein);
+  color: var(--nacht);
+  font-family: "Hanken Grotesk", Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { margin: 0; font-weight: 400; line-height: 1.1; letter-spacing: -.02em; }
+h2 { font-size: 2.2rem; font-weight: 300; letter-spacing: -.025em; }
+h3 { font-size: 1.15rem; font-weight: 500; letter-spacing: -.005em; }
+p { margin: 0 0 1em; }
+a { color: inherit; }
+img { display: block; max-width: 100%; height: auto; }
+
+main > section { padding: 140px max(32px, calc((100% - var(--rand)) / 2)); }
+
+/* Kopf */
+.kopf {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 26px max(32px, calc((100% - var(--rand)) / 2));
+  border-bottom: 1px solid var(--linie);
+}
+.logo {
+  font-weight: 500;
+  font-size: 1.02rem;
+  letter-spacing: .04em;
+  text-decoration: none;
+  margin-right: auto;
+  line-height: 1.25;
+}
+.logo span { display: block; font-weight: 400; font-size: .8rem; letter-spacing: .02em; opacity: .6; margin-top: 2px; }
+.status { margin: 0; font-size: .88rem; opacity: .8; }
+.status b { font-weight: 500; }
+.status::before {
+  content: "";
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--akzent);
+  margin-right: 9px;
+  vertical-align: 2px;
+}
+.tel {
+  border: 1px solid var(--nacht);
+  font-weight: 500;
+  font-size: .95rem;
+  text-decoration: none;
+  padding: 9px 18px;
+  transition: background .2s, color .2s;
+}
+.tel:hover { background: var(--nacht); color: var(--stein); }
+
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  text-decoration: none;
+  padding: 17px 30px;
+  cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s;
+}
+.btn-rand { border: 1px solid var(--nacht); }
+.btn-rand:hover { background: var(--nacht); color: var(--stein); }
+
+/* Start - Foto groß bis an den Rand */
+main > section.start {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  min-height: 78vh;
+}
+.start-text { padding: 120px 0 100px; align-self: center; }
+.start h1 { font-size: clamp(3rem, 5.6vw, 5.4rem); font-weight: 300; letter-spacing: -.04em; line-height: 1.02; }
+.was {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 300;
+  line-height: 1.45;
+  margin: 30px 0 40px;
+  max-width: 24em;
+  opacity: .85;
+}
+/* Hinweis, kein Knopf */
+.privat-tag {
+  border-left: 2px solid var(--akzent);
+  padding: 2px 0 2px 16px;
+  font-weight: 500;
+  letter-spacing: .01em;
+  margin-bottom: 40px;
+}
+.lead { max-width: 31em; font-size: 1.02rem; opacity: .9; }
+.lead b { font-weight: 600; }
+.buttons { display: flex; flex-wrap: wrap; gap: 14px; margin: 40px 0 0; }
+
+.start-bild { margin: 0; position: relative; }
+.start-bild img { width: 100%; height: 100%; object-fit: cover; object-position: 88% 50%; }
+.start-bild figcaption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: var(--stein);
+  font-size: .85rem;
+  padding: 14px 22px 0 0;
+}
+
+/* Anliegen */
+.anliegen {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0 80px;
+  border-top: 1px solid var(--linie);
+}
+.anliegen h2 { position: sticky; top: 40px; align-self: start; max-width: 9em; }
+.anliegen-liste { grid-column: 2; }
+.zeile {
+  display: grid;
+  grid-template-columns: 48px 1fr 1.3fr;
+  gap: 24px;
+  padding: 30px 0;
+  border-top: 1px solid var(--linie);
+}
+.zeile:first-child { border-top: 0; padding-top: 0; }
+.nr { font-size: 1.6rem; font-weight: 300; line-height: 1; color: var(--akzent); font-variant-numeric: tabular-nums; }
+.zeile p { margin: 0; font-size: 1rem; }
+.zeile p span { display: block; margin-top: 10px; font-size: .85rem; font-weight: 500; opacity: .55; }
+.nicht-dabei { grid-column: 2; border-top: 1px solid var(--linie); padding: 30px 0 0 72px; margin: 0; }
+.nicht-dabei a { font-weight: 500; text-decoration: none; }
+.nicht-dabei a:hover, .anschrift a:hover { color: var(--akzent); }
+.wisch-btn { display: none; }
+
+/* Privatpraxis - einzige farbige Fläche, Akzent als Band */
+main > section.privat {
+  background: var(--nacht);
+  color: var(--stein);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.privat h2 { font-size: 2.6rem; align-self: start; color: var(--akzent); }
+.privat h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--akzent);
+  margin-top: 30px;
+}
+.privat-spalten { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; font-weight: 300; font-size: 1.05rem; opacity: .9; }
+
+/* Zeiten + Anschrift */
+.wann-raster {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  margin-top: 48px;
+}
+.tage { list-style: none; margin: 0; padding: 0; }
+.tage li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1rem;
+  padding: 16px 0;
+  border-top: 1px solid var(--linie);
+}
+.tage li:last-child { border-bottom: 1px solid var(--linie); }
+.tage li span { font-weight: 300; font-variant-numeric: tabular-nums; }
+.tage li.zu { opacity: .4; }
+.tage li.heute { font-weight: 500; box-shadow: inset 2px 0 0 var(--akzent); padding-left: 16px; }
+.tage li.heute span { font-weight: 500; }
+.tage li.heute em {
+  font-style: normal;
+  font-size: .9rem;
+  font-weight: 400;
+  margin: 0 auto 0 12px;
+}
+.anschrift p { font-size: 1rem; font-weight: 300; }
+.anschrift b { font-weight: 500; font-size: 1.1rem; }
+.anschrift a[href^="https"] { font-weight: 500; text-decoration: none; }
+.hinweis { margin-top: 18px; font-size: .9rem; opacity: .7; }
+
+main > section.mitbringen { padding-top: 0; }
+.mitbringen ul {
+  list-style: none;
+  margin: 40px 0 0;
+  padding: 0;
+  columns: 2;
+  column-gap: 80px;
+}
+.mitbringen li {
+  break-inside: avoid;
+  padding: 14px 0;
+  border-top: 1px solid var(--linie);
+  font-weight: 300;
+}
+
+/* Werdegang */
+main > section.person { border-top: 1px solid var(--linie); display: grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto 1fr; gap: 0 80px; }
+.person-satz { grid-column: 1; font-size: 1.05rem; font-weight: 300; margin: 16px 0 0; }
+.werdegang { grid-column: 2; grid-row: 1 / span 2; border-collapse: collapse; width: 100%; }
+.werdegang td { padding: 16px 0; border-top: 1px solid var(--linie); vertical-align: top; font-size: 1rem; font-weight: 300; }
+.werdegang tr:first-child td { border-top: 0; padding-top: 6px; }
+.werdegang td:first-child { width: 140px; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* Anfrage */
+main > section.anfrage { border-top: 1px solid var(--linie); display: grid; grid-template-columns: 1fr 2fr; grid-template-rows: auto 1fr; gap: 0 80px; }
+.anfrage-info { grid-column: 1; margin: 16px 0 0; font-weight: 300; }
+.formular, .danke { grid-column: 2; grid-row: 1 / span 2; }
+.formular label { display: block; font-size: .85rem; letter-spacing: .02em; margin-bottom: 22px; }
+.formular input[type="text"],
+.formular input[type="tel"],
+.formular select,
+.formular textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 0;
+  font: inherit;
+  font-weight: 300;
+  color: var(--nacht);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(20, 33, 58, .35);
+  border-radius: 0;
+}
+.formular textarea { border: 1px solid rgba(20, 33, 58, .35); padding: 12px; }
+.formular input:focus, .formular select:focus, .formular textarea:focus { outline: none; border-color: var(--akzent); }
+.reihe { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.formular .check { display: flex; gap: 12px; align-items: center; font-size: .95rem; }
+.check input { width: 18px; height: 18px; accent-color: var(--nacht); }
+.ds { font-size: .85rem; opacity: .7; margin-bottom: 26px; }
+.danke {
+  align-self: start;
+  border-left: 2px solid var(--akzent);
+  padding: 4px 0 4px 28px;
+}
+.danke p { margin: 0 0 18px; }
+.danke p:first-child { font-size: 1.6rem; font-weight: 300; letter-spacing: -.015em; }
+.danke-termin { font-size: 1.2rem; font-weight: 300; max-width: 26em; }
+.danke-gruss { margin-top: 30px !important; font-size: .95rem; }
+.danke-gruss b, .persoenlich b { font-weight: 500; }
+
+.fuss {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding: 28px max(32px, calc((100% - var(--rand)) / 2));
+  border-top: 1px solid var(--linie);
+  font-size: .82rem;
+  opacity: .8;
+}
+.fuss a { margin-left: 20px; text-decoration: none; }
+
+@media (max-width: 1000px) {
+  .status { display: none; }
+  main > section.start { grid-template-columns: 1fr; padding-right: 32px; gap: 0; min-height: 0; }
+  .start-text { padding: 64px 0 48px; }
+  .start-bild { margin: 0 -32px; }
+  .start-bild img { aspect-ratio: 16 / 10; }
+  .anliegen, main > section.privat, main > section.person, main > section.anfrage { grid-template-columns: 1fr; gap: 28px; }
+  .anliegen h2 { position: static; }
+  main > section.person, main > section.anfrage { grid-template-rows: none; }
+  .anliegen-liste, .nicht-dabei, .person-satz, .werdegang, .anfrage-info, .formular, .danke { grid-column: 1; grid-row: auto; }
+  .nicht-dabei { padding-left: 0; }
+}
+
+/* Handy */
+@media (max-width: 680px) {
+  body { font-size: 17px; }
+  main > section { padding: 76px 22px; }
+  .kopf { flex-wrap: wrap; gap: 4px 12px; padding: 14px 18px; }
+  .status { display: block; order: 3; width: 100%; font-size: .8rem; }
+  .tel { padding: 7px 12px; font-size: .9rem; }
+  h2 { font-size: 1.85rem; }
+
+  main > section.start { padding-right: 22px; }
+  .start-text { padding: 44px 0 40px; }
+  .start h1 { font-size: 2.7rem; }
+  .start-bild { margin: 0 -22px; }
+  .start-bild img { aspect-ratio: 4 / 3; }
+  .start-bild figcaption { padding: 10px 16px 0 22px; font-size: .8rem; }
+  .buttons .btn { width: 100%; text-align: center; }
+
+  /* Anliegen zum Wischen */
+  .wisch {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 22px;
+    margin: 0 -22px;
+    padding: 0 22px 4px;
+    scrollbar-width: none;
+  }
+  .wisch::-webkit-scrollbar { display: none; }
+  .wisch .zeile {
+    flex: 0 0 76%;
+    scroll-snap-align: start;
+    display: block;
+    border: 1px solid var(--linie);
+    padding: 24px 20px 26px;
+  }
+  .wisch .zeile:first-child { padding-top: 24px; border: 1px solid var(--linie); }
+  .zeile .nr { display: block; margin-bottom: 14px; }
+  .zeile h3 { margin-bottom: 10px; }
+  .wisch-btn {
+    display: block;
+    margin: 12px 0 0 auto;
+    padding: 6px 0 4px;
+    background: none;
+    border: 0;
+    font: inherit;
+    font-weight: 500;
+    font-size: .95rem;
+    color: var(--nacht);
+    cursor: pointer;
+  }
+  .nicht-dabei { margin-top: 16px; }
+
+  .privat-spalten { grid-template-columns: 1fr; gap: 0; }
+  .privat h2 { font-size: 2.1rem; }
+  .wann-raster { grid-template-columns: 1fr; gap: 36px; margin-top: 30px; }
+  .mitbringen ul { columns: 1; margin-top: 28px; }
+  .werdegang td { display: block; border: 0; padding: 0; }
+  .werdegang tr { display: block; border-top: 1px solid var(--linie); padding: 14px 0; }
+  .werdegang tr:first-child td { padding-top: 0; }
+  .reihe { grid-template-columns: 1fr; gap: 0; }
+  .fuss { padding: 22px; }
+  .fuss a { margin: 0 18px 0 0; }
+}
+
+/* Nachtrag: kleine iPhones */
+@media (max-width: 360px) {
+  .start h1 { font-size: 2.3rem; }
+  .tel { font-size: .82rem; padding: 6px 10px; }
+}
+
+/* ---- Akzent-Varianten (Klasse am body), eine davon bleibt ---- */
+
+.btn-tel .wort::after { content: ":"; }
+.btn { letter-spacing: .02em; padding: 18px 32px; }
+
+/* A: Knöpfe nachtblau, Messing nur als feine Kante + Pfeil */
+.akzent-a .btn-voll {
+  background: var(--nacht);
+  color: var(--stein);
+  border: 1px solid var(--nacht);
+  box-shadow: inset 0 -2px 0 var(--akzent);
+}
+.akzent-a .btn-voll::after { content: "\2192"; color: var(--akzent); margin-left: 14px; transition: margin .2s; }
+.akzent-a .btn-voll:hover { box-shadow: inset 0 -4px 0 var(--akzent); }
+.akzent-a .btn-voll:hover::after { margin-left: 20px; }
+.akzent-a .btn-rand:hover { border-color: var(--akzent); background: none; color: var(--nacht); }
+
+/* B: feine Messing-Kontur, beim Hover füllt sich Messing von links */
+.akzent-b .btn-voll,
+.akzent-b .btn-rand {
+  color: var(--nacht);
+  background: linear-gradient(var(--akzent), var(--akzent)) no-repeat left / 0 100%;
+  border: 1px solid var(--akzent);
+  transition: background-size .35s ease;
+}
+.akzent-b .btn-rand { border-color: transparent; background: none; padding-left: 8px; }
+.akzent-b .btn-rand::after { content: "\2192"; color: var(--akzent); margin-left: 12px; }
+.akzent-b .btn-voll:hover,
+.akzent-b .btn-rand:hover { background-size: 100% 100%; color: var(--nacht); border-color: var(--akzent); }
+.akzent-b .btn-rand:hover { background: none; border-color: transparent; }
+.akzent-b .btn-rand:hover::after { margin-left: 18px; }
+.akzent-b .privat h2 { font-size: 3.4rem; }
+.akzent-b .privat-spalten p { border-top: 1px solid var(--akzent); padding-top: 22px; }
+.akzent-b .start-bild figcaption { box-shadow: inset 0 1px 0 var(--akzent); }
+
+/* C: die Nummer selbst ist der Hingucker, Termin als nachtblaue Fläche */
+.akzent-c .buttons { align-items: flex-end; gap: 28px 40px; }
+.akzent-c .btn-tel {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--akzent);
+  font-size: 2.6rem;
+  font-weight: 300;
+  letter-spacing: -.01em;
+  line-height: 1;
+}
+.akzent-c .btn-tel .wort { display: block; font-size: .85rem; font-weight: 500; letter-spacing: .04em; color: var(--nacht); margin-bottom: 10px; }
+.akzent-c .btn-tel .wort::after { content: none; }
+.akzent-c .btn-tel .nummer::after { content: "\2192"; font-size: .6em; margin-left: 16px; vertical-align: .15em; transition: margin .2s; }
+.akzent-c .btn-tel:hover .nummer::after { margin-left: 24px; }
+.akzent-c .btn-rand,
+.akzent-c .formular .btn-voll { background: var(--nacht); color: var(--stein); border: 1px solid var(--nacht); }
+.akzent-c .btn-rand:hover,
+.akzent-c .formular .btn-voll:hover { box-shadow: inset 0 -3px 0 var(--akzent); }
+.akzent-c .tel { border-color: var(--akzent); }
+
+@media (max-width: 680px) {
+  .akzent-c .btn-tel { width: 100%; text-align: left; font-size: 2.3rem; }
+  .akzent-c .buttons .btn-rand { width: 100%; }
+}
+
+/* Nachtrag v5b: Rückruf in 3 Schritten (ersetzt das alte Formular) */
+.ablauf fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.ablauf legend { padding: 0; font-size: 1.6rem; font-weight: 300; letter-spacing: -.015em; margin-bottom: 26px; }
+.schritt-stand { display: flex; align-items: center; gap: 8px; font-size: .85rem; margin: 0 0 34px; opacity: .9; }
+.schritt-stand span { margin-right: 14px; }
+.schritt-stand b { font-weight: 500; }
+.schritt-stand i { display: block; width: 44px; height: 1px; background: var(--linie); }
+.schritt-stand i.aktiv { height: 2px; background: var(--akzent); }
+.klein { font-size: .92rem; font-weight: 300; margin: -10px 0 26px; max-width: 34em; }
+.feld-titel { font-size: .85rem; letter-spacing: .02em; margin: 0 0 12px; }
+.feld-titel span { opacity: .6; }
+
+.wahl { display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; margin-bottom: 30px; }
+.formular .wahl label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 14px 0 14px 2px;
+  border-top: 1px solid var(--linie);
+  font-size: 1rem;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: padding .2s;
+}
+.wahl label:has(:checked) { font-weight: 500; box-shadow: inset 2px 0 0 var(--akzent); padding-left: 14px; }
+.ablauf input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 15px; height: 15px;
+  margin: 0;
+  flex: none;
+  border: 1px solid rgba(15, 27, 46, .45);
+  border-radius: 50%;
+}
+.ablauf input[type="radio"]:checked { border-color: var(--nacht); box-shadow: inset 0 0 0 4px var(--stein); background: var(--nacht); }
+
+/* Tag und Zeit: Kästchen zum Antippen */
+.tage-wahl, .zeit-wahl { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin-bottom: 30px; }
+.zeit-wahl { grid-template-columns: repeat(4, 1fr); }
+.formular .tage-wahl label, .formular .zeit-wahl label {
+  position: relative;
+  margin: 0;
+  padding: 14px 8px;
+  border: 1px solid var(--linie);
+  text-align: center;
+  font-size: .95rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+.tage-wahl label b { display: block; font-weight: 500; font-size: .8rem; opacity: .7; margin-bottom: 2px; }
+.tage-wahl input, .zeit-wahl input, .foto-feld input { position: absolute; opacity: 0; pointer-events: none; }
+.tage-wahl label:hover, .zeit-wahl label:hover { border-color: rgba(15, 27, 46, .45); }
+.tage-wahl label:has(:checked), .zeit-wahl label:has(:checked) { border-color: var(--nacht); box-shadow: inset 0 -2px 0 var(--akzent); font-weight: 500; }
+
+.weiter-zeile { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin: 10px 0 0; }
+.weiter-zeile .weiter, .schritt[data-schritt="1"] .weiter-zeile { margin-left: auto; }
+.zurueck { background: none; border: 0; padding: 8px 0; font: inherit; font-size: .95rem; color: var(--nacht); cursor: pointer; opacity: .75; }
+.zurueck:hover { opacity: 1; }
+.fehler { font-size: .9rem; font-weight: 500; margin: 0 0 14px; }
+
+.vorab { border-top: 1px solid var(--linie); padding-top: 26px; margin: 8px 0 26px; }
+.vorab .klein { margin-top: 0; }
+.formular .foto-feld {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(15, 27, 46, .35);
+  font-weight: 500;
+  font-size: .95rem;
+  cursor: pointer;
+  margin-bottom: 14px;
+}
+.foto-feld:hover { border-color: var(--nacht); }
+.foto-feld::after { content: "+"; margin-left: auto; font-size: 1.4rem; font-weight: 300; color: var(--akzent); line-height: 1; }
+.foto-feld img { width: 56px; height: 56px; object-fit: cover; }
+.demo { font-size: .82rem; opacity: .6; margin: 0; }
+
+.persoenlich { display: flex; align-items: center; gap: 16px; margin: 34px 0 0; padding-top: 22px; border-top: 1px solid var(--linie); font-size: .95rem; line-height: 1.45; }
+.persoenlich img { width: 56px; height: 56px; object-fit: cover; object-position: 88% 50%; flex: none; }
+
+@media (max-width: 680px) {
+  .ablauf legend { font-size: 1.4rem; }
+  .wahl { grid-template-columns: 1fr; }
+  .tage-wahl { grid-template-columns: repeat(3, 1fr); }
+  .zeit-wahl { grid-template-columns: repeat(2, 1fr); }
+  .weiter-zeile .btn { width: auto; }
+  .danke p:first-child { font-size: 1.35rem; }
+}
+.anfrage-info a { font-weight: 500; text-decoration: none; white-space: nowrap; }
+.anfrage-info a:hover { color: var(--akzent); }
+.danke-foto { font-weight: 300; }
