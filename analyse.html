@@ -161,7 +161,7 @@ document.querySelectorAll('.wa').forEach(function (a) {
 })
 
 // Termin-Fenster: Termine wie auf praxisecht.de, frühestens in 3 Tagen
-var buchen = false // erst true, wenn praxisecht.de die Anfrage von hier annimmt
+var buchen = true // false: Termin geht stattdessen per WhatsApp raus
 var fenster = document.getElementById('termin'), start = 0
 fenster.querySelectorAll(buchen ? '.ohne-buchen' : '.nur-buchen').forEach(function (x) { x.style.display = 'none' })
 if (!buchen) document.getElementById('buchen').textContent = 'Termin per WhatsApp schicken'
@@ -215,9 +215,21 @@ document.getElementById('buchen').onclick = function () {
   fd.append('vorname', vn.value.trim()); fd.append('email', em.value.trim()); fd.append('termin', termin)
   fd.append('anfrage_art', 'webseite'); fd.append('website_hat', 'direkt')
   fd.append('notiz', 'Direkt zum Termin (hautarzt-bullay Analyse)')
-  fetch('https://praxisecht.de/sende-anfrage.php', { method: 'POST', body: fd }).catch(function () {})
-  document.getElementById('danke-text').textContent = 'Ihr Termin: ' + termin
-  schritt(3)
+  var knopf = this
+  knopf.disabled = true; knopf.textContent = 'Wird gebucht …'
+  fetch('https://praxisecht.de/sende-anfrage.php', { method: 'POST', body: fd })
+    .then(function (r) { return r.json() })
+    .then(function (a) {
+      knopf.disabled = false; knopf.textContent = 'Termin verbindlich buchen'
+      if (!a.ok) { f.textContent = a.msg || 'Das hat nicht geklappt. Bitte noch einmal versuchen.'; return }
+      document.getElementById('danke-text').textContent = 'Ihr Termin: ' + termin
+      schritt(3)
+    })
+    .catch(function () {
+      knopf.disabled = false; knopf.textContent = 'Termin verbindlich buchen'
+      f.innerHTML = 'Das hat gerade nicht geklappt. <a href="#" id="wa-ersatz">Termin lieber per WhatsApp schicken</a>'
+      document.getElementById('wa-ersatz').onclick = function (e) { e.preventDefault(); whatsapp('Hallo Herr Mäding, ich hätte gern den Termin ' + termin + '. Viele Grüße, ' + vn.value.trim()) }
+    })
 }
 // Link analyse.html#termin öffnet das Fenster gleich
 if (location.hash == '#termin') auf()
