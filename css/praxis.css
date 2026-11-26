@@ -192,3 +192,20 @@ dialog::backdrop { background: rgba(8,14,24,.78); }
 .ich { display: flex; gap: 22px; align-items: center; }
 .ich .portrait { width: 80px; height: 80px; flex: 0 0 80px; }
 @media (max-width: 600px) { .ich { gap: 16px; align-items: flex-start; } .ich .portrait { width: 72px; height: 72px; flex-basis: 72px; } }
+
+/* Nachtrag: feste Knöpfe rechts, am Handy unten */
+.feste { position: fixed; right: 0; top: 50%; transform: translateY(-50%); display: none; flex-direction: column; gap: 6px; z-index: 5; }
+.feste.da { display: flex; }
+.feste a { margin: 0; background: #0F1B2E; color: #F4F0E8; text-decoration: none; font-size: 15px; font-weight: 500; padding: 14px 10px; border-radius: 4px 0 0 4px; writing-mode: vertical-rl; transform: rotate(180deg); border-radius: 0 4px 4px 0; }
+.feste a:hover { background: #22324c; }
+.feste .ruf { background: #F4F0E8; color: #0F1B2E; border: 1px solid #0F1B2E; border-left: 0; }
+@media (max-width: 600px) {
+  .feste { top: auto; bottom: 0; left: 0; transform: none; flex-direction: row; gap: 0; padding: 8px 12px calc(8px + env(safe-area-inset-bottom)); background: #F4F0E8; border-top: 1px solid #ddd6c8; }
+  .feste a { flex: 1; writing-mode: horizontal-tb; transform: none; text-align: center; padding: 12px; border-radius: 3px; font-size: 16px; }
+  .feste .ruf { order: -1; border: 1px solid #0F1B2E; margin-right: 8px; }
+  body.mit-leiste { padding-bottom: 72px; }
+  #hinweis { bottom: 84px; }
+}
+
+/* alle Bilder gesperrt */
+img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; }

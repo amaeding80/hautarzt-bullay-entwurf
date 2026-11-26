@@ -18,7 +18,7 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 .einstieg { font-size: 19px; }
 .punkt { padding: 34px 0; border-top: 1px solid #ddd6c8; }
 .punkt h2:before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #7A2E2A; margin-right: 10px; vertical-align: 3px; }
-.punkt img { display: block; max-width: 100%; height: auto; border: 1px solid #ddd6c8; border-radius: 6px; margin: 14px 0 6px; }
+.punkt img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; pointer-events: none; display: block; max-width: 100%; height: auto; border: 1px solid #ddd6c8; border-radius: 6px; margin: 14px 0 6px; }
 .punkt .schmal img { max-width: 260px; }
 .bild-hinweis { font-size: 13px; opacity: .6; margin: 0; }
 .entwurf { background: #0F1B2E; color: #F4F0E8; padding: 12px 16px; border-radius: 5px; font-size: 15px; margin-top: 14px; }
@@ -44,15 +44,15 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 <div class="punkt">
   <h2>Die Seite sagt selbst, dass sie noch nicht fertig ist</h2>
   <p>Oben steht „bald mit vollständiger Website für Sie erreichbar“, weiter unten „Website in Vorbereitung“. Die Praxis ist längst offen, die Seite wirkt aber noch wie eine Baustelle.</p>
-  <a href="bilder/jetzt-desktop.jpg"><img src="bilder/jetzt-desktop.jpg" alt="Startseite hautarzt-bullay.de am Computer, Stand heute"></a>
-  <p class="bild-hinweis">Startseite heute am Computer. Zum Vergrößern antippen.</p>
+  <img draggable="false" src="bilder/jetzt-desktop.jpg" alt="Startseite hautarzt-bullay.de am Computer, Stand heute">
+  <p class="bild-hinweis">Startseite heute am Computer.</p>
   <p class="entwurf">Im Entwurf: eine fertige Seite, die gleich sagt, was Sie machen. <a href="index.html">Ansehen</a></p>
 </div>
 
 <div class="punkt">
   <h2>Man sieht nicht, wofür man kommen kann</h2>
   <p>Hautkrebsvorsorge, Operationen, Laser und die anderen Leistungen stehen nur als Auswahl im Formular. Wer die Seite überfliegt, erfährt nicht, womit er zu Ihnen kommen kann.</p>
-  <a href="bilder/jetzt-formular.jpg"><img src="bilder/jetzt-formular.jpg" alt="Formular mit der Auswahl der Anliegen"></a>
+  <img draggable="false" src="bilder/jetzt-formular.jpg" alt="Formular mit der Auswahl der Anliegen">
   <p class="entwurf">Im Entwurf: sechs Anliegen in Patientensprache, gleich unter dem Start. <a href="index.html#wofuer">Ansehen</a></p>
 </div>
 
@@ -65,7 +65,7 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 <div class="punkt">
   <h2>Am Handy fehlt das Foto der Praxis</h2>
   <p>Am Computer sieht man den Eingang, am Handy nicht. Gerade dort schauen die meisten zuerst.</p>
-  <div class="schmal"><a href="bilder/jetzt-handy.jpg"><img src="bilder/jetzt-handy.jpg" alt="Startseite am Handy ohne Praxisfoto"></a></div>
+  <div class="schmal"><img draggable="false" src="bilder/jetzt-handy.jpg" alt="Startseite am Handy ohne Praxisfoto"></div>
   <p class="bild-hinweis">Startseite heute am Handy.</p>
   <p class="entwurf">Im Entwurf: das Türfoto auch am Handy, mit dem Hinweis, wo das Schild hängt und wo man parkt. <a href="index.html">Ansehen</a></p>
 </div>
@@ -83,5 +83,9 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 
 <p class="fuss">Stand: 26. November 2026. Bilder: eigene Aufnahmen von hautarzt-bullay.de. <a href="index.html">Zum Entwurf</a></p>
 </div>
+<script>
+// Bilder: kein Rechtsklick, kein Ziehen
+document.querySelectorAll('img').forEach(function (i) { i.oncontextmenu = function () { return false }; i.ondragstart = function () { return false } })
+</script>
 </body>
 </html>

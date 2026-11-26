@@ -54,3 +54,11 @@ document.querySelectorAll('img').forEach(function (i) {
   i.oncontextmenu = function () { return false }
   i.ondragstart = function () { return false }
 })
+
+// feste Knöpfe erst nach dem Start zeigen
+var feste = document.getElementById('feste'), start = document.querySelector('.start')
+window.addEventListener('scroll', function () {
+  var weg = start.getBoundingClientRect().bottom < 0
+  feste.className = weg ? 'feste da' : 'feste'
+  document.body.classList.toggle('mit-leiste', weg)
+})
