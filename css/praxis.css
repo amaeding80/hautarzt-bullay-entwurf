@@ -216,3 +216,5 @@ img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
 .wer b { display: block; font-size: 19px; }
 .wer small { display: block; font-size: 15px; opacity: .7; }
 @media (max-width: 600px) { .ich .portrait { width: 64px; height: 64px; flex-basis: 64px; } .ich .wer { gap: 14px; } }
+.ich .wer { align-items: flex-start; }
+.wer b { margin-top: 2px; }
