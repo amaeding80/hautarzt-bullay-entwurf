@@ -187,3 +187,8 @@ dialog::backdrop { background: rgba(8,14,24,.78); }
 .portrait { width: 56px; height: 56px; border-radius: 50%; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; pointer-events: none; }
 .fuss { opacity: 1; color: rgba(15,27,46,.7); flex-wrap: nowrap; }
 .portrait { flex: 0 0 56px; }
+
+/* Nachtrag: Foto zum Text über ihn statt im Fuß */
+.ich { display: flex; gap: 22px; align-items: center; }
+.ich .portrait { width: 80px; height: 80px; flex: 0 0 80px; }
+@media (max-width: 600px) { .ich { gap: 16px; align-items: flex-start; } .ich .portrait { width: 72px; height: 72px; flex-basis: 72px; } }
