@@ -35,13 +35,15 @@ function zeige(n) {
   for (var i = 0; i < s.length; i++) { s[i].className = i == n ? 'schritt an' : 'schritt'; punkte[i].className = i == n ? 'jetzt' : '' }
   demo.querySelectorAll('.gewaehlt, .da').forEach(function (x) { x.classList.remove('gewaehlt', 'da') })
   // Balken läuft mit
-  var b = document.getElementById('balken'), dauer = n == 2 ? 4.8 : 3.2
+  var b = document.getElementById('balken'), dauer = n == 2 ? 6 : 3.2
   b.style.transition = 'none'; b.style.width = (n * 25) + '%'; b.offsetWidth
   b.style.transition = 'width ' + dauer + 's linear'; b.style.width = ((n + 1) * 25) + '%'
   var klick = s[n].querySelector('[data-klick]')
   if (klick) lauf = setTimeout(function () { klick.classList.add('gewaehlt') }, 1200)
   s[n].querySelectorAll('.antwort').forEach(function (a, k) { setTimeout(function () { a.classList.add('da') }, 900 + k * 900) })
-  lauf = setTimeout(function () { zeige((n + 1) % s.length) }, n == 2 ? 4800 : 3200)
+  // Fragebogen: Ja/Nein wird nacheinander angetippt
+  s[n].querySelectorAll('.tipp').forEach(function (t, k) { setTimeout(function () { t.classList.add('gewaehlt') }, 1000 + k * 1100) })
+  lauf = setTimeout(function () { zeige((n + 1) % s.length) }, n == 2 ? 6000 : 3200)
 }
 document.querySelectorAll('.online').forEach(function (b) {
   b.onclick = function (e) { e.preventDefault(); demo.showModal(); clearTimeout(lauf); zeige(0) }

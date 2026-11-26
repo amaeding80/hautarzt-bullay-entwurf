@@ -248,3 +248,12 @@ h1 { margin-bottom: 8px; }
 .kopf .tel span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: rgba(15,27,46,.35); }
 .kopf .tel:hover { opacity: 1; }
 .kopf .tel:hover span { text-decoration-color: #0F1B2E; }
+
+/* Fragebogen im Popup: Ja / Nein */
+.bsp { font-size: 12px; font-weight: 600; vertical-align: middle; border: 1px solid #0F1B2E; border-radius: 3px; padding: 1px 6px; margin-left: 6px; }
+.jn { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 0 10px; padding: 0 0 10px; border-bottom: 1px solid #ece6da; font-size: 15px; }
+.jn span { display: flex; gap: 6px; flex: none; }
+.jn b { font-weight: 500; min-width: 54px; text-align: center; padding: 7px 10px; border: 1px solid #ddd6c8; border-radius: 5px; background: #F4F0E8; transition: all .3s; }
+.jn b.gewaehlt { background: #0F1B2E; border-color: #0F1B2E; color: #fff; animation: tipp .35s; }
+@keyframes tipp { 0% { transform: scale(1) } 40% { transform: scale(.9) } 100% { transform: scale(1) } }
+@media (min-width: 900px) { .jn { font-size: 17px; } }
