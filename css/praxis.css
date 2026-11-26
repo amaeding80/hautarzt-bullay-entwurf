@@ -208,7 +208,7 @@ dialog::backdrop { background: rgba(8,14,24,.78); }
 }
 
 /* alle Bilder gesperrt */
-img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; }
+img, picture { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; }
 
 /* Nachtrag: Foto als Kopfzeile, Text darunter */
 .ich { display: block; }

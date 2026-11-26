@@ -51,11 +51,24 @@ document.querySelectorAll('.online').forEach(function (b) {
 document.getElementById('zu').onclick = function () { demo.close() }
 demo.onclose = function () { clearTimeout(lauf) }
 
-// Fotos: kein Rechtsklick, kein Ziehen
-document.querySelectorAll('img').forEach(function (i) {
-  i.oncontextmenu = function () { return false }
-  i.ondragstart = function () { return false }
-})
+// Fotos: kein Rechtsklick, kein Ziehen, auch Hintergrundbilder
+function istBild(el) {
+  if (!(el instanceof Element)) return false
+  if (el.closest('img, picture')) return true
+  var bg = getComputedStyle(el).backgroundImage
+  return !!bg && bg.indexOf('url(') !== -1
+}
+function bildDarunter(e) {
+  var liste = document.elementsFromPoint(e.clientX, e.clientY)
+  for (var i = 0; i < liste.length; i++) {
+    if (liste[i].closest && liste[i].closest('img, picture')) return true
+  }
+  return false
+}
+function bildSperren(e) { if (istBild(e.target) || bildDarunter(e)) e.preventDefault() }
+document.addEventListener('contextmenu', bildSperren)
+document.addEventListener('dragstart', bildSperren)
+document.querySelectorAll('img, picture').forEach(function (i) { i.setAttribute('draggable', 'false') })
 
 // feste Knöpfe: ab "Damit können Sie zu mir kommen", unten beim Kontakt wieder weg
 var feste = document.getElementById('feste'), ab = false, bis = false
