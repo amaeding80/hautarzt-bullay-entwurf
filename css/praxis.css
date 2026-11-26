@@ -242,3 +242,9 @@ img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none;
 /* kleine Zeile unter der Headline */
 h1 { margin-bottom: 8px; }
 .fuer { margin: 0 0 22px; font-size: 16px; opacity: .7; }
+
+/* Telefon oben: sieht man, dass man tippen kann */
+.kopf .tel { display: inline-flex; align-items: center; gap: 7px; cursor: pointer; }
+.kopf .tel span { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; text-decoration-color: rgba(15,27,46,.35); }
+.kopf .tel:hover { opacity: 1; }
+.kopf .tel:hover span { text-decoration-color: #0F1B2E; }

@@ -55,10 +55,12 @@ document.querySelectorAll('img').forEach(function (i) {
   i.ondragstart = function () { return false }
 })
 
-// feste Knöpfe erst nach dem Start zeigen
-var feste = document.getElementById('feste'), start = document.querySelector('.start')
-window.addEventListener('scroll', function () {
-  var weg = start.getBoundingClientRect().bottom < 0
-  feste.className = weg ? 'feste da' : 'feste'
-  document.body.classList.toggle('mit-leiste', weg)
-})
+// feste Knöpfe: ab "Damit können Sie zu mir kommen", unten beim Kontakt wieder weg
+var feste = document.getElementById('feste'), ab = false, bis = false
+function knopf() {
+  var da = ab && !bis
+  feste.className = da ? 'feste da' : 'feste'
+  document.body.classList.toggle('mit-leiste', da)
+}
+new IntersectionObserver(function (e) { ab = e[0].isIntersecting || e[0].boundingClientRect.top < 0; knopf() }).observe(document.getElementById('wofuer'))
+new IntersectionObserver(function (e) { bis = e[0].isIntersecting || e[0].boundingClientRect.top < 0; knopf() }).observe(document.getElementById('kontakt'))
