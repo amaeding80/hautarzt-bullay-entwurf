@@ -42,7 +42,6 @@ document.querySelectorAll('.wisch-btn').forEach(function (btn) {
 });
 
 // Anfrage - nur Demo! Versand fehlt noch, vor Livegang anbinden
-// Nachtrag v5b: 3 Schritte (Anliegen, Wunschzeit, Kontakt + Foto)
 var f = document.getElementById('anfrage-form');
 if (f) {
   var schritte = f.querySelectorAll('.schritt');
@@ -120,7 +119,7 @@ if (f) {
       fe.hidden = false;
       return;
     }
-    document.getElementById('danke-termin').textContent = 'Sie bekommen Ihren Rückruf am ' +
+    document.getElementById('danke-termin').textContent = 'Ihre Wunschzeit für den Rückruf: ' +
       f.querySelector('[name=tag]:checked').value + ', zwischen ' + f.querySelector('[name=zeit]:checked').value +
       ', unter ' + f.telefon.value.trim() + '.';
     document.getElementById('danke-foto').hidden = !f.foto.files.length;
@@ -129,8 +128,36 @@ if (f) {
   });
 }
 
-// Vorschau: Akzent-Variante per ?akzent=b umschalten (nur zum Zeigen, vor Livegang raus)
+// Vorschau: Platzhalter wieder zeigen mit ?platzhalter=1
+if (/platzhalter=1/.test(location.search)) document.body.classList.remove('ohne-platzhalter');
+
+// Vorschau: Etiketten an meinen Ideen zeigen mit ?vorschlag=1 (sonst aus)
+if (/vorschlag=1/.test(location.search)) document.body.classList.remove('ohne-ideen');
+
+// Vorschau: Links ohne Ziel zeigen kurz einen Hinweis (vor Livegang raus)
 (function () {
-  var m = location.search.match(/akzent=([abc])/);
-  if (m) document.body.className = 'akzent-' + m[1];
+  var hinweis = document.getElementById('demo-hinweis');
+  var texte = {
+    impressum: 'Nur Vorschau: Hier käme das Impressum der Praxis.',
+    datenschutz: 'Nur Vorschau: Hier käme die Datenschutzerklärung.',
+    barrierefreiheit: 'Nur Vorschau: Hier käme die Erklärung zur Barrierefreiheit.',
+    anfrage: 'Nur Vorschau: Die Anfrage wird in diesem Entwurf nicht verschickt.'
+  };
+  var timer;
+  function zeigen(text) {
+    if (!hinweis) return;
+    hinweis.textContent = text;
+    hinweis.classList.add('da');
+    clearTimeout(timer);
+    timer = setTimeout(function () { hinweis.classList.remove('da'); }, 4000);
+  }
+  // tel:, mailto: und Maps bleiben echte Links, das Logo springt nach oben
+  document.querySelectorAll('[data-demo], a[href="#"]:not(.logo)').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      zeigen(texte[el.getAttribute('data-demo')] || 'Nur Vorschau.');
+    });
+  });
+  var form = document.getElementById('anfrage-form');
+  if (form) form.addEventListener('submit', function () { zeigen(texte.anfrage); });
 })();

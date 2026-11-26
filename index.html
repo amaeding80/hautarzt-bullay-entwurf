@@ -8,28 +8,33 @@
 <meta name="description" content="Hautarzt in Bullay: Hautkrebsvorsorge, Muttermale, Hautoperationen, Laser und Behandlung chronischer Hauterkrankungen. Privatpraxis Christian Brecht für Privatversicherte und Selbstzahler.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/praxis.css">
 </head>
-<body class="akzent-c">
+<!-- Schalter: ohne-ideen blendet die Etiketten "Idee von praxisecht" aus, zeigen mit ?vorschlag=1 -->
+<!-- Schalter: Klasse ohne-platzhalter blendet Foto-Platzhalter, Entwurfshinweise und Vorschläge (.vorschlag) aus. Zum Einblenden Klasse entfernen oder ?platzhalter=1 -->
+<body class="akzent-c ohne-platzhalter ohne-ideen">
 
 <header class="kopf">
   <a href="#" class="logo">Praxis Brecht<span>Haut&shy;arzt in Bullay</span></a>
   <p class="status" id="status">Di bis Do 8:30 – 16:30 Uhr</p>
-  <a href="tel:+4965422030" class="tel">06542 2030</a>
+  <a href="tel:+4965422030" class="tel">Tel. 06542 2030</a>
 </header>
 
 <main>
 
+<!-- Aktuell: Text liefert die Praxis, bis dahin nur mit ?vorschlag=1 -->
+<p class="aktuell"><b>Aktuell aus der Praxis:</b> Hier steht, was Sie gerade wissen sollten, zum Beispiel Urlaub oder Vertretung. <span class="idee-klein">Idee, Text von Ihnen</span></p>
+
 <section class="start">
   <div class="start-text">
-    <h1>Hautarzt in Bullay.</h1>
-    <p class="was">Hautkrebsvorsorge, Muttermale, kleine Hautoperationen, Laser und Hilfe bei chronischen Hauterkrankungen.</p>
-    <p class="privat-tag">Privatpraxis für Privatversicherte und Selbstzahler</p>
-    <p class="lead"><b>Sie haben eine Frage zu Ihrer Haut?</b> Dann rufen Sie mich an. Ich bin Christian Brecht, Facharzt für Dermatologie und Venerologie, und ich nehme mir für Sie die Zeit, die Ihre Frage braucht.</p>
+    <h1>Ihr Hautarzt in Bullay</h1>
+    <p class="was">Hautkrebsvorsorge, Operationen an der Haut, Laserbehandlungen, Schönheitsbehandlungen und Hilfe bei chronischen Hautkrankheiten.</p>
+    <p class="lead">Meine Privatpraxis am Neumerler Weg, mit Parkplatz direkt vor der Tür. Bei jedem Termin sprechen Sie mit mir, Christian Brecht, Facharzt für Hautkrankheiten. <b>Rufen Sie mich an, dann finden wir einen Termin.</b></p>
+    <p class="idee">Bitte bestätigen: Sprechen Patienten bei jedem Termin mit Ihnen selbst? Sonst ändere ich den Satz. Allexander Mäding</p>
     <p class="buttons">
-      <a href="tel:+4965422030" class="btn btn-voll btn-tel"><span class="wort">Anrufen</span> <span class="nummer">06542 2030</span></a>
-      <a href="#anfrage" class="btn btn-rand">Rückruf zur Wunschzeit</a>
+      <a href="tel:+4965422030" class="btn btn-voll btn-tel"><span class="nummer">06542 2030</span> <span class="wort">anrufen</span></a>
+      <a href="#anfrage" class="btn btn-rand vorschlag">Rückruf zur Wunschzeit</a>
     </p>
   </div>
   <figure class="start-bild">
@@ -38,24 +43,83 @@
   </figure>
 </section>
 
-<section class="anliegen" id="anliegen">
-  <h2>Womit Patienten zu mir kommen</h2>
+<!-- persönlicher Teil, Quellen siehe quellen.md -->
+<section class="person" id="person">
+  <figure class="portrait">
+    <span class="initialen">CB</span>
+    <figcaption class="idee">Hier kommt ein Foto von Ihnen hin, am besten in der Praxis. Ein Bild von Ihnen macht viel aus.</figcaption>
+  </figure>
 
-  <div class="anliegen-liste wisch" id="anliegen-liste" tabindex="0" aria-label="Anliegen, auf dem Handy seitlich wischen">
+  <div class="person-text">
+    <h2>Christian Brecht</h2>
+    <p class="person-satz">Facharzt für Dermatologie und Venerologie.</p>
+    <p>Seit März 2026 habe ich meine eigene Praxis in Bullay. Bevor ich Hautarzt wurde, habe ich in der Inneren Medizin und in der Radiologie gearbeitet.</p>
+
+    <p>Zu Schuppenflechte und Neurodermitis habe ich auch Vorträge gehalten.</p>
+
+    <p>Meine Praxis ist klein. Sie werden nicht weitergereicht, und beim nächsten Termin weiß ich noch, worüber wir gesprochen haben.</p>
+    <p class="idee">Bitte bestätigen, ob das so stimmt. Allexander Mäding</p>
+
+    <div class="person-tabellen">
+      <div>
+        <h3>Werdegang</h3>
+        <table class="werdegang">
+          <tr><td>seit 2026</td><td>Eigene Privatpraxis in Bullay</td></tr>
+          <tr><td>2021 – 2025</td><td>Weiterbildung Dermatologie und Venerologie, Zentrum für Hautgesundheit Neuwied</td></tr>
+          <tr><td>2019 – 2021</td><td>Assistenzarzt Radiologie, Katholisches Klinikum Koblenz-Montabaur</td></tr>
+          <tr><td>2018 – 2019</td><td>Assistenzarzt Innere Medizin, Medizinische Hochschule Hannover</td></tr>
+          <tr><td>Studium</td><td>Medizin, Johannes Gutenberg-Universität Mainz</td></tr>
+        </table>
+      </div>
+      <div>
+        <h3>Vorträge</h3>
+        <table class="werdegang">
+          <tr><td>Okt. 2024</td><td>Fortbildung „Derma meets Pädiatrie“, Thema Neurodermitis im Praxisalltag (damals MVZ Fokus Haut, Koblenz/Neuwied)</td></tr>
+          <tr><td>Okt. 2023</td><td>Tagesseminar des Deutschen Psoriasis Bundes, Koblenz</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- erster Termin: Anruf + Parkplatz sind belegt, Punkt 3 muss er bestätigen -->
+<section class="ablauf-termin" id="ablauf">
+  <h2>So läuft Ihr erster Termin</h2>
+  <ol class="schritte-liste">
+    <li>
+      <h3>Sie rufen an.</h3>
+      <p>Unter <a href="tel:+4965422030">06542 2030</a>, Dienstag bis Donnerstag. Wir suchen zusammen einen Termin, der in Ihre Woche passt.</p>
+    </li>
+    <li>
+      <h3>Sie kommen an.</h3>
+      <p>Sie parken direkt vor der Praxis am Neumerler Weg 5. An der Tür hängt das Schild mit meinem Namen.</p>
+    </li>
+    <li>
+      <h3>Wir sprechen in Ruhe.</h3>
+      <p>Sie erzählen mir, was Sie bemerkt haben. Dann schaue ich es mir an und sage Ihnen, was ich sehe und was wir machen.</p>
+    </li>
+  </ol>
+  <p class="idee">Punkt 3 bitte bestätigen, so habe ich mir den Ablauf vorgestellt.</p>
+</section>
+
+<section class="anliegen" id="anliegen">
+  <h2>Wofür Sie kommen können</h2>
+
+  <div class="anliegen-liste wisch" id="anliegen-liste">
     <div class="zeile">
       <span class="nr">01</span>
       <h3>Ein Muttermal hat sich verändert.</h3>
-      <p>Wir schauen es uns gemeinsam an und bei der Gelegenheit auch den Rest Ihrer Haut. <span>Hautkrebsvorsorge</span></p>
+      <p>Bei der Hautkrebsvorsorge wird die ganze Haut untersucht. <span>Hautkrebsvorsorge</span></p>
     </div>
     <div class="zeile">
       <span class="nr">02</span>
       <h3>Etwas an der Haut soll weg.</h3>
-      <p>Ein Knoten, ein auffälliges Muttermal. Kleinere Eingriffe mache ich ambulant in der Praxis. <span>Operative Dermatologie</span></p>
+      <p>Ein Knoten oder ein Muttermal, das entfernt werden soll. <span>Operative Dermatologie</span></p>
     </div>
     <div class="zeile">
       <span class="nr">03</span>
       <h3>Die Creme hilft seit Jahren nicht richtig.</h3>
-      <p>Bei manchen chronischen Hauterkrankungen reicht eine Creme allein nicht. Dann sprechen wir über eine Behandlung von innen. <span>Systemtherapie, Biologika</span></p>
+      <p>Bei manchen chronischen Hauterkrankungen reicht eine Creme allein nicht. Dann gibt es Medikamente, die von innen wirken, als Tablette oder Spritze. <span>Systemtherapie, Biologika</span></p>
     </div>
     <div class="zeile">
       <span class="nr">04</span>
@@ -65,26 +129,58 @@
     <div class="zeile">
       <span class="nr">05</span>
       <h3>Äderchen, Flecken oder eine Narbe stören Sie.</h3>
-      <p>Ob ein Laser passt, besprechen wir vorher. Wenn nicht, sage ich Ihnen das auch. <span>Lasermedizin, Ästhetik</span></p>
+      <p>Für Äderchen, Pigmentflecken und manche Narben gibt es Laserbehandlungen. <span>Lasermedizin, Ästhetik</span></p>
     </div>
     <div class="zeile">
       <span class="nr">06</span>
       <h3>Es ist Ihnen unangenehm.</h3>
-      <p>Fragen zu Geschlechtskrankheiten gehören zum Hautarzt. Was Sie mir sagen, bleibt in der Praxis. <span>Venerologie</span></p>
+      <p>Geschlechtskrankheiten gehören zum Fach des Hautarztes. Es gilt die ärztliche Schweigepflicht. Am Telefon reicht der Satz „Ich habe eine vertrauliche Frage.“ Oder schreiben Sie mir eine <a href="mailto:praxis@hautarzt-bullay.de?subject=Vertraulich">Mail mit dem Betreff Vertraulich</a>. <span>Venerologie</span></p>
+      <p class="idee">Bitte bestätigen, dass Ihre Praxis so damit umgeht.</p>
     </div>
   </div>
   <button type="button" class="wisch-btn" aria-controls="anliegen-liste">Wischen &rarr;</button>
 
-  <p class="nicht-dabei">Ihr Anliegen ist nicht dabei? <a href="tel:+4965422030">Rufen Sie an</a>, dann klären wir das kurz am Telefon.</p>
+  <p class="nicht-dabei">Ihr Anliegen fehlt hier? Fragen Sie einfach am Telefon: <a href="tel:+4965422030">06542 2030</a>.</p>
 </section>
+
 
 <section class="privat" id="privat">
   <h2>Reine Privatpraxis</h2>
   <div class="privat-spalten">
     <p>Ich behandle Privatversicherte und Selbstzahler. Abgerechnet wird nach der Gebührenordnung für Ärzte (GOÄ). Über die gesetzliche Krankenkasse kann ich leider nicht abrechnen.</p>
-    <p>Die Zulassung für Fälle der Berufsgenossenschaft ist beantragt. Wenn Sie nicht sicher sind, ob das für Sie passt: kurz anrufen und fragen.</p>
+    <p>Wenn Sie nicht sicher sind, ob das für Sie passt, rufen Sie mich kurz an.</p>
   </div>
 </section>
+
+<!-- Weinberg + Sonnenkalender (DGUV, BfS, DWI) -->
+<section class="weinberg" id="weinberg">
+  <p class="idee">Idee von praxisecht, nicht von Ihnen: Diesen Abschnitt mit dem Sonnenkalender habe ich mir ausgedacht, weil Bullay mitten im Weinbau liegt. Die Zahlen sind belegt, der Bezug zu Ihrer Praxis ist meine Idee. Bitte prüfen. Allexander Mäding</p>
+  <div class="weinberg-text">
+    <h2>Wer viel im Weinberg arbeitet</h2>
+    <p>Wer jahrelang draußen in der Sonne arbeitet, bekommt an Stirn, Ohren, Nacken und Handrücken oft raue Stellen. Das sind aktinische Keratosen. Aus manchen davon kann heller Hautkrebs werden.</p>
+    <p>Seit 2015 kann das unter bestimmten Voraussetzungen als Berufskrankheit Nr. 5103 anerkannt werden, etwa nach langer Arbeit in der Landwirtschaft oder im Weinbau. Die Meldung an die Berufsgenossenschaft macht der Arzt. Die Zulassung meiner Praxis für Fälle der Berufsgenossenschaft ist beantragt.</p>
+    <p>Ab UV-Index 3 rät das Bundesamt für Strahlenschutz zu Schutz: Schatten, lange Ärmel, Hut und Sonnencreme auf freier Haut. Bei uns ist das an sonnigen Tagen ungefähr von März bis September der Fall.</p>
+  </div>
+  <figure class="weinberg-bild">
+    <img src="bilder/bullay-doppelstockbruecke.jpg" alt="Bullay an der Mosel mit Doppelstockbrücke und Weinbergen" width="1920" height="1320">
+    <figcaption>Bullay mit Doppelstockbrücke. <small>Foto: kaʁstn, Wikimedia Commons, CC BY-SA 3.0 DE</small></figcaption>
+  </figure>
+
+  <table class="sonnenjahr">
+    <caption>Arbeit im Weinberg und UV-Index übers Jahr</caption>
+    <tr class="kopfzeile"><th>Monate</th><td>Arbeit im Weinberg</td><td>UV-Index</td></tr>
+    <tr><th>Jan – Feb</th><td>Rebschnitt</td><td style="--uv: 1"><span class="uv-balken"></span>1</td></tr>
+    <tr><th>Mär – Apr</th><td>Biegen und Binden, Austrieb</td><td style="--uv: 4"><span class="uv-balken"></span>2 – 4</td></tr>
+    <tr><th>Mai – Jun</th><td>Ausbrechen, Blüte, Heften</td><td style="--uv: 7"><span class="uv-balken"></span>5 – 7</td></tr>
+    <tr><th>Jul – Aug</th><td>Laubarbeit, Entblättern, grüne Lese</td><td style="--uv: 7"><span class="uv-balken"></span>5 – 7</td></tr>
+    <tr><th>Sep – Okt</th><td>Lese</td><td style="--uv: 4"><span class="uv-balken"></span>1 – 4</td></tr>
+    <tr><th>Nov – Dez</th><td>Blattfall, Rebschnitt beginnt</td><td style="--uv: 1"><span class="uv-balken"></span>0 – 1</td></tr>
+  </table>
+
+  <p class="weinjahr-satz">Eine raue Stelle, die nicht abheilt, oder ein Muttermal, das sich verändert, sollten Sie zu jeder Jahreszeit ansehen lassen.</p>
+  <p class="quelle">Quellen: <a href="https://www.dguv.de/bk-info/icd-10-kapitel/kapitel_12/bk5103/index.jsp" rel="noopener">DGUV, BK-Info Nr. 5103</a>. UV-Index: <a href="https://www.bfs.de/DE/themen/opt/uv/uv-index/weltweit/weltweit.html" rel="noopener">Bundesamt für Strahlenschutz</a>, Richtwerte für den 21. des Monats bei klarem Himmel zwischen Paris (49° N) und Berlin (52° N), Bullay liegt bei 50° N. Arbeiten im Weinberg nach dem <a href="https://www.deutscheweine.de/weinbau/172/arbeit-im-weinberg" rel="noopener">Deutschen Weininstitut</a>, je nach Witterung früher oder später.</p>
+</section>
+
 
 <section class="wann" id="zeiten">
   <h2>Wann und wo</h2>
@@ -100,12 +196,48 @@
 
     <div class="anschrift">
       <p><b>Praxis Brecht</b><br>Neumerler Weg 5<br>56859 Bullay</p>
-      <p>Über die B49 Richtung Bullay, Abfahrt Bullay-Alf. Parkplätze direkt vor der Praxis.</p>
-      <p><a href="https://maps.google.com/?q=Neumerler+Weg+5,+56859+Bullay">Route in Google Maps &rarr;</a></p>
+      <p>Parkplätze direkt vor der Praxis.</p>
+      <p><a href="https://maps.google.com/?q=Neumerler+Weg+5,+56859+Bullay">Route in Google Maps</a></p>
       <p>Telefon <a href="tel:+4965422030">06542 2030</a><br>Fax 06542 1571<br><a href="mailto:praxis@hautarzt-bullay.de">praxis@hautarzt-bullay.de</a></p>
     </div>
   </div>
   <p class="hinweis">Termine nach Vereinbarung.</p>
+
+  <!-- Anfahrt: Skizze nach OpenStreetMap, nicht maßstäblich. Schild = Text vom echten Praxisschild -->
+  <div class="weg">
+    <figure class="skizze">
+      <svg viewBox="40 180 520 540" width="520" height="540" role="img" aria-label="Skizze: Praxis am Neumerler Weg, südlich vom Bahnhof Bullay">
+        <path d="M40 315 L130 440 L200 530 L300 640 L380 700 L410 720 L240 720 L200 690 L100 620 L40 590 Z" fill="#dfe3e6"/>
+        <path d="M40 315 L130 440 L200 530 L300 640 L380 700 L410 720" fill="none" stroke="#0F1B2E" stroke-width="1.5"/>
+        <path d="M185 180 L195 205 L235 300 L245 400 L230 500 L170 580 L75 680 L40 700" fill="none" stroke="#0F1B2E" stroke-width="3" stroke-dasharray="10 6"/>
+        <path d="M225 525 Q238 415 266 408 L300 440 L390 570 L470 670 L505 720" fill="none" stroke="#0F1B2E" stroke-width="2.5"/>
+        <path d="M215 525 L300 590 L420 630" fill="none" stroke="#0F1B2E" stroke-width="1.5"/>
+        <circle cx="236" cy="238" r="7" fill="#F4F0E8" stroke="#0F1B2E" stroke-width="2"/>
+        <circle cx="286" cy="487" r="11" fill="#E9A20F" stroke="#0F1B2E" stroke-width="2"/>
+        <text x="252" y="243">Bahnhof Bullay</text>
+        <text x="304" y="480" font-weight="600">Praxis Brecht</text>
+        <text x="304" y="499" class="klein">Neumerler Weg 5</text>
+        <text x="300" y="650" class="klein">Neumerler Weg</text>
+        <text x="410" y="575" class="klein">Brautrockstraße</text>
+        <text x="50" y="600" class="klein">Doppelstock-</text>
+        <text x="50" y="618" class="klein">brücke</text>
+        <text x="215" y="680" class="klein">Mosel</text>
+      </svg>
+      <figcaption>Skizze, nicht maßstäblich. Grundlage: © OpenStreetMap-Mitwirkende</figcaption>
+    </figure>
+
+    <div class="schild">
+      <p class="schild-titel">So steht es an der Tür</p>
+      <div class="platte">
+        <p>Praxis für</p>
+        <p class="fach">Dermatologie &amp; Venerologie</p>
+        <p class="name">Christian Brecht</p>
+        <p class="klein">Operative Dermatologie · Lasermedizin<br>Systemtherapie · Ästhetik</p>
+        <p class="klein">Termine nach Vereinbarung<br><a href="tel:+4965422030">Tel: 06542 2030</a></p>
+      </div>
+      <p class="speichern"><a href="praxis-brecht.vcf" download>Praxis im Handy speichern</a><br><span>Nummer, Fax, Mail, Anschrift und Sprechzeiten als Kontakt.</span></p>
+    </div>
+  </div>
 </section>
 
 <section class="mitbringen">
@@ -113,32 +245,17 @@
   <ul>
     <li>Personalausweis</li>
     <li>Ihre Versichertenkarte, falls vorhanden</li>
-    <li>Überweisung, falls vorhanden</li>
-    <li>Vorbefunde oder Arztbriefe, wenn Sie welche haben</li>
-    <li>Fotos auf dem Handy, wenn sich etwas verändert hat</li>
+    <li>Vorbefunde oder Arztbriefe, falls vorhanden</li>
   </ul>
 </section>
 
-<!-- Werdegang -->
-<section class="person">
-  <h2>Christian Brecht</h2>
-  <p class="person-satz">Facharzt für Dermatologie und Venerologie.</p>
-  <table class="werdegang">
-    <tr><td>seit 2026</td><td>Eigene Privatpraxis in Bullay</td></tr>
-    <tr><td>2021 – 2025</td><td>Weiterbildung Dermatologie und Venerologie, Zentrum für Hautgesundheit Neuwied</td></tr>
-    <tr><td>2019 – 2021</td><td>Assistenzarzt Radiologie, Katholisches Klinikum Koblenz-Montabaur</td></tr>
-    <tr><td>2018 – 2019</td><td>Assistenzarzt Innere Medizin, Medizinische Hochschule Hannover</td></tr>
-    <tr><td>Studium</td><td>Medizin, Johannes Gutenberg-Universität Mainz</td></tr>
-  </table>
-</section>
 
-<section class="anfrage" id="anfrage">
+<!-- Rückruf aus, bis Versand drin ist -->
+<section class="anfrage vorschlag" id="anfrage">
   <h2>Rückruf zur Wunschzeit</h2>
-  <p class="anfrage-info">Sie sagen mir, worum es geht und wann es Ihnen passt. Ich rufe Sie in diesem Zeitfenster zurück. Wer lieber gleich spricht: <a href="tel:+4965422030">06542 2030</a>.</p>
+  <p class="anfrage-info">Sie nennen Ihr Anliegen und eine Wunschzeit für den Rückruf. Ich melde mich so bald wie möglich telefonisch. Wer lieber gleich spricht: <a href="tel:+4965422030">06542 2030</a>.</p>
 
-  <!-- Demo: vor Livegang Versand (mail.php) anbinden, vorher kein Danke zeigen -->
-  <!-- Nachtrag v5b: Ablauf in 3 Schritten statt Formular. Foto nur Vorschau, wird NICHT übertragen.
-       Vor Livegang: verschlüsselte Übertragung (TLS + Ablage verschlüsselt, nicht per Mail), Einwilligung Art. 9 DSGVO, Löschfrist -->
+  <!-- nur Demo. Vor Livegang: Versand (mail.php), Foto nur verschlüsselt + Einwilligung -->
   <form id="anfrage-form" class="formular ablauf" action="#" method="post" novalidate>
     <p class="schritt-stand" id="stand"><span>Schritt <b id="stand-nr">1</b> von 3</span> <i class="aktiv"></i><i></i><i></i></p>
 
@@ -160,7 +277,7 @@
     </fieldset>
 
     <fieldset class="schritt" data-schritt="2" hidden>
-      <legend>Wann darf ich Sie anrufen?</legend>
+      <legend>Wann passt Ihnen ein Rückruf?</legend>
       <p class="klein">Rückrufe gibt es zu den Sprechzeiten, Dienstag bis Donnerstag.</p>
       <p class="feld-titel">Tag</p>
       <div class="tage-wahl" id="tage-wahl"><!-- per JS: die nächsten Di-Do --></div>
@@ -182,7 +299,7 @@
         <label>Telefon für den Rückruf<input type="tel" name="telefon" required autocomplete="tel"></label>
       </div>
 
-      <div class="vorab">
+      <div class="vorab vorschlag">
         <p class="feld-titel">Vorab-Blick mit Foto <span>(freiwillig)</span></p>
         <p class="klein">Wenn es um eine Stelle auf der Haut geht, können Sie ein Foto mitschicken. Ich sehe es mir vor dem Rückruf an und sage Ihnen, ob es eilig ist. Eine Untersuchung ersetzt das nicht.</p>
         <label class="foto-feld" id="foto-feld">
@@ -195,18 +312,18 @@
       </div>
 
       <label class="check"><input type="checkbox" name="privat" required> Ich bin privat versichert oder zahle selbst.</label>
-      <p class="ds">Ihre Angaben verwenden wir für die Terminabsprache. Mehr dazu in der <a href="#">Datenschutzerklärung</a>.</p>
+      <p class="ds">Ihre Angaben verwende ich nur für die Terminabsprache. Mehr dazu in der <a href="#" data-demo="datenschutz">Datenschutzerklärung</a>.</p>
       <p class="fehler" hidden>Bitte Name, Telefon und das Häkchen zur Privatpraxis ausfüllen.</p>
       <p class="weiter-zeile"><button type="button" class="zurueck">&larr; Zurück</button> <button type="submit" class="btn btn-voll">Rückruf anfordern</button></p>
-      <p class="persoenlich"><img src="bilder/praxis-tuer.jpg" alt="" width="64" height="64"> <span>Ich melde mich persönlich bei Ihnen.<br><b>Christian Brecht</b></span></p>
+      <p class="persoenlich vorschlag"><img src="bilder/praxis-tuer.jpg" alt="" width="64" height="64"> <span>Ich melde mich persönlich bei Ihnen.<br><b>Christian Brecht</b></span></p>
     </fieldset>
   </form>
 
   <div class="danke" id="danke" hidden>
     <p>Vielen Dank für Ihre Anfrage.</p>
     <p class="danke-termin" id="danke-termin"></p>
-    <p class="danke-foto" id="danke-foto" hidden>Ihr Foto sehe ich mir vorher an.</p>
-    <p class="danke-gruss">Ich melde mich persönlich bei Ihnen.<br><b>Christian Brecht</b></p>
+    <p class="danke-foto vorschlag" id="danke-foto" hidden>Ihr Foto sehe ich mir vorher an.</p>
+    <p class="danke-gruss">Ich melde mich so bald wie möglich telefonisch bei Ihnen.<br><b>Christian Brecht</b></p>
   </div>
 </section>
 
@@ -214,8 +331,11 @@
 
 <footer class="fuss">
   <span>Praxis Brecht · Neumerler Weg 5 · 56859 Bullay</span>
-  <span><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Barrierefreiheit</a></span>
+  <span><a href="#" data-demo="impressum">Impressum</a><a href="#" data-demo="datenschutz">Datenschutz</a><a href="#" data-demo="barrierefreiheit">Barrierefreiheit</a></span>
 </footer>
+
+<!-- Vorschau: Hinweis bei Links, die es noch nicht gibt (vor Livegang raus) -->
+<p class="demo-hinweis" id="demo-hinweis" role="status"></p>
 
 <script src="js/praxis.js"></script>
 </body>

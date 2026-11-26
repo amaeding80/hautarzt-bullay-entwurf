@@ -361,40 +361,8 @@ main > section.anfrage { border-top: 1px solid var(--linie); display: grid; grid
   .tel { font-size: .82rem; padding: 6px 10px; }
 }
 
-/* ---- Akzent-Varianten (Klasse am body), eine davon bleibt ---- */
-
 .btn-tel .wort::after { content: ":"; }
 .btn { letter-spacing: .02em; padding: 18px 32px; }
-
-/* A: Knöpfe nachtblau, Messing nur als feine Kante + Pfeil */
-.akzent-a .btn-voll {
-  background: var(--nacht);
-  color: var(--stein);
-  border: 1px solid var(--nacht);
-  box-shadow: inset 0 -2px 0 var(--akzent);
-}
-.akzent-a .btn-voll::after { content: "\2192"; color: var(--akzent); margin-left: 14px; transition: margin .2s; }
-.akzent-a .btn-voll:hover { box-shadow: inset 0 -4px 0 var(--akzent); }
-.akzent-a .btn-voll:hover::after { margin-left: 20px; }
-.akzent-a .btn-rand:hover { border-color: var(--akzent); background: none; color: var(--nacht); }
-
-/* B: feine Messing-Kontur, beim Hover füllt sich Messing von links */
-.akzent-b .btn-voll,
-.akzent-b .btn-rand {
-  color: var(--nacht);
-  background: linear-gradient(var(--akzent), var(--akzent)) no-repeat left / 0 100%;
-  border: 1px solid var(--akzent);
-  transition: background-size .35s ease;
-}
-.akzent-b .btn-rand { border-color: transparent; background: none; padding-left: 8px; }
-.akzent-b .btn-rand::after { content: "\2192"; color: var(--akzent); margin-left: 12px; }
-.akzent-b .btn-voll:hover,
-.akzent-b .btn-rand:hover { background-size: 100% 100%; color: var(--nacht); border-color: var(--akzent); }
-.akzent-b .btn-rand:hover { background: none; border-color: transparent; }
-.akzent-b .btn-rand:hover::after { margin-left: 18px; }
-.akzent-b .privat h2 { font-size: 3.4rem; }
-.akzent-b .privat-spalten p { border-top: 1px solid var(--akzent); padding-top: 22px; }
-.akzent-b .start-bild figcaption { box-shadow: inset 0 1px 0 var(--akzent); }
 
 /* C: die Nummer selbst ist der Hingucker, Termin als nachtblaue Fläche */
 .akzent-c .buttons { align-items: flex-end; gap: 28px 40px; }
@@ -423,7 +391,7 @@ main > section.anfrage { border-top: 1px solid var(--linie); display: grid; grid
   .akzent-c .buttons .btn-rand { width: 100%; }
 }
 
-/* Nachtrag v5b: Rückruf in 3 Schritten (ersetzt das alte Formular) */
+/* Nachtrag: Rückruf in 3 Schritten (ersetzt das alte Formular) */
 .ablauf fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
 .ablauf legend { padding: 0; font-size: 1.6rem; font-weight: 300; letter-spacing: -.015em; margin-bottom: 26px; }
 .schritt-stand { display: flex; align-items: center; gap: 8px; font-size: .85rem; margin: 0 0 34px; opacity: .9; }
@@ -519,3 +487,344 @@ main > section.anfrage { border-top: 1px solid var(--linie); display: grid; grid
 .anfrage-info a { font-weight: 500; text-decoration: none; white-space: nowrap; }
 .anfrage-info a:hover { color: var(--akzent); }
 .danke-foto { font-weight: 300; }
+
+/* Nachtrag: persönlicher Teil */
+main > section.person { grid-template-columns: 5fr 7fr; grid-template-rows: none; gap: 90px; align-items: start; }
+.portrait { margin: 0; position: sticky; top: 40px; }
+.platzhalter {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.portrait .initialen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--akzent);
+  font-size: 7rem;
+  font-weight: 300;
+  letter-spacing: -.03em;
+  color: var(--akzent);
+}
+.platzhalter figcaption { font-size: .85rem; margin-top: 12px; opacity: .75; }
+.person-text h2 { font-size: 2.5rem; max-width: 13em; }
+.person-text .person-satz { margin: 14px 0 34px; }
+.person-text p { max-width: 34em; }
+.person .werdegang { grid-column: auto; grid-row: auto; margin-top: 46px; }
+@media (min-width: 681px) {
+  .person .werdegang tr:first-child td { border-top: 1px solid var(--linie); padding-top: 16px; }
+}
+.entwurf-hinweis { font-size: .8rem; opacity: .55; margin: 6px 0 0; }
+
+/* erster Termin */
+.schritte-liste { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.schritte-liste li { border-top: 1px solid var(--linie); padding-top: 26px; }
+.schritte-liste .nr { display: block; margin-bottom: 22px; }
+.schritte-liste h3 { margin-bottom: 12px; }
+.schritte-liste p { margin: 0; font-size: 1rem; }
+.ablauf-termin .entwurf-hinweis { margin-top: 30px; }
+
+@media (max-width: 1000px) {
+  main > section.person { grid-template-columns: 1fr; gap: 40px; }
+  .portrait { position: static; max-width: 420px; }
+  .schritte-liste { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 680px) {
+  .person-text h2 { font-size: 1.9rem; }
+  .portrait .initialen { aspect-ratio: 4 / 3; font-size: 5rem; }
+  .schritte-liste { margin-top: 30px; }
+.wisch.schritte-liste { display: flex; gap: 12px; }
+  .wisch.schritte-liste li { flex: 0 0 76%; scroll-snap-align: start; border: 1px solid var(--linie); padding: 24px 20px 26px; }
+}
+/* Nachtrag: Schalter ohne-platzhalter (am body) */
+.ohne-platzhalter .platzhalter,
+.ohne-platzhalter .entwurf-hinweis { display: none !important; }
+
+/* Person ohne Porträt: Text links, Werdegang rechts */
+.ohne-platzhalter main > section.person { grid-template-columns: 1fr; }
+.ohne-platzhalter .person-text { display: grid; grid-template-columns: 5fr 6fr; column-gap: 90px; align-items: start; }
+.ohne-platzhalter .person-text > * { grid-column: 1; }
+.ohne-platzhalter .person .werdegang { grid-column: 2; grid-row: 1 / span 8; margin-top: 8px; }
+.person-zitat { font-size: 1.7rem; font-weight: 300; letter-spacing: -.015em; line-height: 1.25; color: var(--akzent); margin: 30px 0 0; padding-top: 26px; border-top: 1px solid var(--akzent); max-width: 14em; }
+
+/* Oben: Anruf am stärksten, Rückruf leiser als Kontur */
+.akzent-c .buttons .btn-rand { background: none; color: var(--nacht); border: 1px solid rgba(15, 27, 46, .35); }
+.akzent-c .buttons .btn-rand:hover { border-color: var(--nacht); box-shadow: none; }
+
+@media (max-width: 1000px) {
+  .ohne-platzhalter .person-text { grid-template-columns: 1fr; }
+  .ohne-platzhalter .person .werdegang { grid-column: 1; grid-row: auto; margin-top: 40px; }
+}
+@media (max-width: 680px) {
+  .person-zitat { font-size: 1.45rem; }
+}
+
+/* Nachtrag: Vorschläge ohne Beleg hängen am selben Schalter */
+.ohne-platzhalter .vorschlag { display: none !important; }
+
+/* Sonne + Weinberg (BK 5103) */
+main > section.weinberg { display: grid; grid-template-columns: 5fr 6fr; gap: 0 80px; align-items: center; }
+.weinberg h2 { margin-bottom: 26px; }
+.weinberg-text p { max-width: 32em; }
+.weinberg .quelle { font-size: .82rem; opacity: .7; margin-top: 20px; }
+.weinberg .quelle a { text-decoration: none; font-weight: 500; }
+.weinberg-bild { margin: 0; }
+.weinberg-bild img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 30% 50%; }
+.weinberg-bild figcaption { font-size: .85rem; margin-top: 12px; opacity: .75; }
+.weinberg-bild small { display: block; font-size: .75rem; opacity: .7; margin-top: 2px; }
+
+@media (max-width: 1000px) {
+  main > section.weinberg { grid-template-columns: 1fr; gap: 36px; }
+  .weinberg-bild img { aspect-ratio: 3 / 2; }
+}
+@media (max-width: 680px) {
+  .weinberg-bild { margin: 0 -22px; }
+  .weinberg-bild figcaption { padding: 0 22px; }
+}
+
+/* Nachtrag: Person ohne Bild, Text breit, Tabellen darunter */
+.ohne-platzhalter .person-text { display: block; }
+.person-text > p { max-width: 44em; }
+.ohne-platzhalter .person .werdegang,
+.person .werdegang { grid-column: auto; grid-row: auto; margin-top: 0; }
+.person-tabellen { display: grid; grid-template-columns: 3fr 2fr; gap: 0 64px; margin-top: 50px; }
+.person-tabellen h3 { font-size: .85rem; font-weight: 500; letter-spacing: .02em; margin-bottom: 14px; }
+.person-tabellen .werdegang td:first-child { width: 120px; }
+@media (max-width: 1000px) {
+  .person-tabellen { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Nachtrag: Sonne im Weinbergjahr */
+main > section.weinjahr { padding-top: 40px; }
+.weinjahr-info { max-width: 40em; margin: 22px 0 0; font-size: 1.05rem; }
+.weinjahr-liste { list-style: none; margin: 44px 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.weinjahr-liste li { border-top: 1px solid var(--linie); padding-top: 20px; display: flex; flex-direction: column; }
+.weinjahr-liste h3 { font-size: 1rem; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
+.weinjahr-liste p { margin: 0 0 22px; font-size: .95rem; line-height: 1.45; flex: 1; }
+/* Balken: Länge nach UV-Index, 8 = voll */
+.uv-balken { display: block; height: 6px; background: var(--linie); position: relative; margin-bottom: 10px; }
+.uv-balken::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--uv) / 8 * 100%); background: var(--akzent); }
+.uv-wert { font-size: .85rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.schutz { font-size: .8rem; opacity: .7; margin-top: 2px; }
+.weinjahr-satz { margin: 36px 0 0; max-width: 40em; font-weight: 500; }
+.weinjahr .quelle { font-size: .8rem; opacity: .65; max-width: 52em; margin-top: 16px; }
+
+@media (max-width: 1000px) {
+  .weinjahr-liste { grid-template-columns: repeat(3, 1fr); gap: 24px 16px; }
+}
+@media (max-width: 680px) {
+  main > section.weinjahr { padding-top: 20px; }
+  .weinjahr-liste { margin-top: 28px; }
+  .wisch.weinjahr-liste { display: flex; gap: 12px; }
+  .wisch.weinjahr-liste li { flex: 0 0 62%; scroll-snap-align: start; border: 1px solid var(--linie); padding: 20px 18px 22px; }
+}
+
+/* Nachtrag: Etikett für meine Ideen (Weinberg, Weinbergjahr), aus mit ?vorschlag=0 */
+.idee { font-size: .85rem; line-height: 1.5; max-width: 40em; margin: 0 0 28px; padding: 2px 0 2px 14px; border-left: 1px solid var(--akzent); opacity: .85; }
+.idee span { display: block; font-size: .8rem; opacity: .7; margin-top: 2px; }
+.ohne-ideen .idee { display: none; }
+
+/* Nachtrag: Akzent kräftiger. Riesling-Gold statt Messing.
+   Auf Stein nie als Schrift (1,9), nur als Fläche oder Balken. Nachtblau auf Gold 7,9. */
+:root { --akzent: #E9A20F; }
+
+/* Telefon: goldene Fläche, Nummer groß */
+.akzent-c .btn-tel { background: var(--akzent); color: var(--nacht); padding: 18px 26px 20px; font-weight: 500; transition: background .2s, color .2s; }
+.akzent-c .btn-tel .wort { margin-bottom: 8px; }
+.akzent-c .btn-tel:hover, .akzent-c .btn-tel:focus-visible { background: var(--nacht); color: var(--akzent); }
+.akzent-c .btn-tel:hover .wort, .akzent-c .btn-tel:focus-visible .wort { color: var(--stein); }
+.akzent-c .tel { background: var(--akzent); border-color: var(--akzent); color: var(--nacht); font-weight: 500; }
+.akzent-c .tel:hover { background: var(--nacht); border-color: var(--nacht); color: var(--akzent); }
+
+/* Privatpraxis als goldenes Band */
+main > section.privat { background: var(--akzent); color: var(--nacht); }
+.privat h2 { color: var(--nacht); }
+.privat h2::after { background: var(--nacht); height: 2px; }
+.privat-spalten { opacity: 1; font-weight: 400; }
+
+/* Markierungen: Nummern, heute, Hinweise */
+.nr { color: var(--nacht); background: var(--akzent); font-size: 1rem; font-weight: 500; padding: 6px 9px 5px; align-self: start; }
+.tage li.heute { box-shadow: inset 4px 0 0 var(--akzent); }
+.privat-tag, .idee { border-left-width: 4px; }
+.status::before { width: 9px; height: 9px; }
+.uv-balken { height: 8px; }
+
+/* Wischen am Handy: goldener Knopf */
+.wisch-btn { background: var(--akzent); color: var(--nacht); border: 0; padding: 10px 16px; font-weight: 500; }
+
+/* Fokus für Tastatur */
+a:focus-visible, button:focus-visible, .wisch:focus-visible { outline: 3px solid var(--akzent); outline-offset: 3px; }
+
+@media (max-width: 680px) {
+  .akzent-c .btn-tel { font-size: 2.1rem; padding: 16px 20px 18px; }
+}
+
+/* Nachtrag: ruhiger, weniger Effekte. Schrift Fira Sans, kein Light mehr */
+body { font-family: "Fira Sans", Helvetica, Arial, sans-serif; font-size: 17px; -webkit-font-smoothing: auto; }
+h1, h2, h3 { letter-spacing: 0; line-height: 1.2; }
+h2 { font-size: 1.75rem; font-weight: 500; }
+h3 { font-size: 1.05rem; font-weight: 600; }
+main > section { padding-top: 88px; padding-bottom: 88px; }
+
+/* Kopf: Telefon als normaler Link, Status ohne Punkt */
+.status::before { content: none; }
+.akzent-c .tel, .tel { background: none; border: 0; padding: 0; color: var(--nacht); font-size: 1rem; font-weight: 500; text-decoration: none; }
+.akzent-c .tel:hover, .tel:hover { background: none; color: var(--nacht); opacity: .7; }
+
+/* Start: Überschrift normal groß, Hinweis ohne Strich */
+.start h1 { font-size: clamp(2.4rem, 4vw, 3.4rem); font-weight: 500; letter-spacing: -.01em; line-height: 1.1; }
+.was { font-weight: 400; font-size: 1.15rem; }
+.privat-tag { border-left: 0; padding: 0; font-weight: 400; margin-bottom: 28px; }
+.privat-tag::before { content: none; }
+
+/* Anruf: kompakte goldene Fläche, eine Zeile */
+.akzent-c .buttons { align-items: center; gap: 12px 24px; }
+.akzent-c .btn-tel { display: inline-block; width: auto; background: var(--akzent); color: var(--nacht); padding: 13px 20px; font-size: 1.05rem; font-weight: 600; line-height: 1.3; letter-spacing: 0; border-radius: 3px; }
+.akzent-c .btn-tel .wort { display: inline; font-size: inherit; font-weight: 400; letter-spacing: 0; margin: 0; color: inherit; }
+.akzent-c .btn-tel .nummer::after { content: none; }
+.akzent-c .btn-tel:hover, .akzent-c .btn-tel:focus-visible { background: #F2B436; color: var(--nacht); }
+.akzent-c .btn-tel:hover .wort, .akzent-c .btn-tel:focus-visible .wort { color: inherit; }
+
+/* Anliegen: keine Nummern, Fachbegriff in einer Zeile */
+.anliegen .nr { display: none; }
+.zeile { grid-template-columns: 1fr 1.3fr; }
+.zeile p span { display: block; font-weight: 400; font-size: .85rem; opacity: .6; margin-top: 6px; }
+.nicht-dabei { padding-left: 0; }
+
+/* Privatpraxis: Gold bleibt, ohne Zierstrich, eine Spalte */
+main > section.privat { grid-template-columns: 1fr 2fr; gap: 0 60px; padding-top: 56px; padding-bottom: 56px; }
+.privat h2 { font-size: 1.75rem; }
+.privat h2::after { content: none; }
+.privat-spalten { display: block; max-width: 38em; }
+.privat-spalten p { margin: 0 0 .6em; }
+
+/* Wischen: Textknopf statt Fläche */
+.wisch-btn { background: none; padding: 6px 0 4px; font-weight: 500; }
+
+/* Weinberg + Sonnenkalender zusammen */
+main > section.weinberg { grid-template-columns: 7fr 4fr; align-items: start; gap: 0 64px; }
+.weinberg .idee, .sonnenjahr, .weinjahr-satz, .weinberg .quelle { grid-column: 1 / -1; }
+.weinberg-bild img { aspect-ratio: 4 / 3; }
+.sonnenjahr { width: 100%; border-collapse: collapse; margin-top: 44px; font-size: .95rem; }
+.sonnenjahr caption { text-align: left; font-weight: 600; margin-bottom: 10px; }
+.sonnenjahr th, .sonnenjahr td { text-align: left; font-weight: 400; padding: 9px 16px 9px 0; border-top: 1px solid var(--linie); vertical-align: middle; }
+.sonnenjahr tr:last-child th, .sonnenjahr tr:last-child td { border-bottom: 1px solid var(--linie); }
+.sonnenjahr th { width: 110px; font-weight: 500; white-space: nowrap; }
+.sonnenjahr td:last-child { width: 34%; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.sonnenjahr .uv-balken { display: inline-block; vertical-align: middle; width: 55%; height: 6px; margin: 0 12px 0 0; }
+.weinjahr-satz { margin-top: 30px; }
+
+/* Ideen-Etikett nur in der Vorschau */
+.idee { border: 1px solid var(--linie); border-left: 1px solid var(--linie); padding: 10px 14px; opacity: 1; font-size: .85rem; }
+.ohne-ideen .idee { display: none; }
+
+@media (max-width: 1000px) {
+  main > section.weinberg { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  main > section { padding-top: 60px; padding-bottom: 60px; }
+  .start h1 { font-size: 2.3rem; }
+  .akzent-c .btn-tel { font-size: 1.05rem; padding: 14px 18px; width: 100%; text-align: center; }
+  main > section.privat { grid-template-columns: 1fr; gap: 14px; padding-top: 44px; padding-bottom: 44px; }
+  .sonnenjahr { font-size: .9rem; }
+  .sonnenjahr th { width: auto; padding-right: 10px; }
+  .sonnenjahr td:nth-child(2) { padding-right: 8px; }
+  .sonnenjahr td:last-child { width: 30%; }
+  .sonnenjahr .uv-balken { display: block; width: 100%; margin: 0 0 4px; }
+  .weinberg-bild img { aspect-ratio: 16 / 9; }
+}
+.sonnenjahr .kopfzeile th, .sonnenjahr .kopfzeile td { font-size: .8rem; opacity: .65; border-top: 0; padding-top: 0; }
+
+/* Vorschau-Hinweis unten (vor Livegang raus) */
+.demo-hinweis {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 12px);
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 12px 18px;
+  background: var(--nacht);
+  color: var(--stein);
+  border-left: 3px solid var(--akzent);
+  font-size: .92rem;
+  line-height: 1.4;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s, transform .2s;
+  z-index: 50;
+}
+.demo-hinweis.da { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 680px) {
+  .demo-hinweis { left: 16px; right: 16px; bottom: 16px; max-width: none; transform: translateY(12px); }
+  .demo-hinweis.da { transform: none; }
+}
+
+/* Nachtrag: Gold nur noch klein. Weinberg wieder ruhig, Privatpraxis dunkel */
+main > section.privat { background: var(--nacht); color: var(--stein); }
+.privat h2 { color: var(--akzent); }
+main > section.weinberg { border-top: 3px solid var(--akzent); }
+.sonnenjahr .uv-balken { background: var(--nacht); }
+
+/* Anruf: gold bleibt, aber klein. Am Handy nicht mehr volle Breite */
+.akzent-c .btn-tel { border-radius: 6px; }
+@media (max-width: 680px) { .akzent-c .btn-tel { width: auto; padding: 12px 18px; } }
+
+/* Aktuell-Zeile oben, erst mal nur Vorschau */
+.aktuell { margin: 0; padding: 12px max(32px, calc((100% - var(--rand)) / 2)); border-bottom: 1px solid var(--linie); font-size: .92rem; }
+.idee-klein { font-size: .8rem; opacity: .6; margin-left: 6px; }
+.ohne-ideen .aktuell { display: none; }
+
+/* Anfahrt: Skizze + Türschild */
+.weg { display: grid; grid-template-columns: 3fr 2fr; gap: 0 60px; margin-top: 56px; align-items: start; }
+.skizze { margin: 0; }
+.skizze svg { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--linie); }
+.skizze text { font-family: "Fira Sans", Arial, sans-serif; font-size: 15px; fill: #0F1B2E; stroke: #fff; stroke-width: 4px; paint-order: stroke; }
+.skizze text.klein { font-size: 13px; opacity: .75; }
+.skizze figcaption { font-size: .8rem; opacity: .65; margin-top: 8px; }
+.schild-titel { font-weight: 600; margin-bottom: 12px; }
+.platte { background: #E9E7E2; border: 1px solid rgba(15,27,46,.12); padding: 30px 24px 26px; text-align: center; }
+.platte p { margin: 0; }
+.platte .fach { font-weight: 600; font-size: 1.12rem; margin: 6px 0 10px; }
+.platte .name { font-weight: 600; display: flex; align-items: center; gap: 12px; }
+.platte .name:before, .platte .name:after { content: ""; flex: 1; height: 1px; background: rgba(15,27,46,.4); }
+.platte .klein { font-size: .85rem; margin-top: 14px; }
+.platte a { text-decoration: none; }
+.speichern { margin-top: 22px; font-size: .95rem; }
+.speichern a { font-weight: 600; }
+.speichern span { font-size: .85rem; opacity: .65; }
+
+@media (max-width: 1000px) { .weg { grid-template-columns: 1fr; gap: 36px; } }
+@media (max-width: 680px) {
+  .aktuell { padding: 10px 22px; }
+  .skizze text { font-size: 18px; }
+  .skizze text.klein { font-size: 15px; }
+}
+
+/* Nachtrag: heimischer. Weichere Ecken, Foto-Platz wieder sichtbar, Ablauf erster Termin */
+.weinberg-bild img, .skizze svg, .platte, .idee { border-radius: 8px; }
+.skizze svg { background: var(--stein); }
+main > section.person { grid-template-columns: 300px 1fr; gap: 70px; }
+.ohne-platzhalter main > section.person { grid-template-columns: 300px 1fr; }
+.portrait .initialen { border: 0; border-radius: 10px; background: rgba(15,27,46,.07); color: var(--nacht); opacity: .8; font-size: 5rem; }
+.portrait figcaption { margin-top: 12px; }
+.person-text p { line-height: 1.7; }
+
+.ablauf-termin { border-top: 1px solid var(--linie); }
+/* Ablauf als ruhige Zeilen, keine Kacheln */
+.schritte-liste { grid-template-columns: 1fr; gap: 0; margin-top: 30px; max-width: 900px; }
+.schritte-liste li { display: grid; grid-template-columns: 1fr 2fr; gap: 30px; padding: 22px 0; border-top: 1px solid var(--linie); }
+.schritte-liste h3 { font-size: 1.15rem; margin: 0; }
+.schritte-liste a { white-space: nowrap; }
+
+@media (max-width: 1000px) {
+  main > section.person, .ohne-platzhalter main > section.person { grid-template-columns: 1fr; gap: 30px; }
+  .portrait { max-width: 260px; }
+}
+@media (max-width: 680px) {
+  .schritte-liste li { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+  .portrait { max-width: 200px; }
+  .portrait .initialen { aspect-ratio: 1; font-size: 3.5rem; }
+}
