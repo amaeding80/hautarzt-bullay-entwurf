@@ -169,3 +169,8 @@ dialog::backdrop { background: rgba(15,27,46,.55); }
 .balken i { background: #7A2E2A; }
 #hinweis { border-left-color: #F4F0E8; }
 .foto:before { background: #0F1B2E; }
+
+/* Nachtrag: Klammer am Online-Termin, Bild nicht speichern */
+.online small { font-size: .8em; font-weight: 400; opacity: .75; }
+.foto img { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; -webkit-user-drag: none; pointer-events: none; }
+@media (max-width: 600px) { .anruf .online { white-space: nowrap; } }

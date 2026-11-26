@@ -48,3 +48,9 @@ document.querySelectorAll('.online').forEach(function (b) {
 })
 document.getElementById('zu').onclick = function () { demo.close() }
 demo.onclose = function () { clearTimeout(lauf) }
+
+// Fotos: kein Rechtsklick, kein Ziehen
+document.querySelectorAll('img').forEach(function (i) {
+  i.oncontextmenu = function () { return false }
+  i.ondragstart = function () { return false }
+})
