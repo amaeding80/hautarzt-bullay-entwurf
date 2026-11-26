@@ -153,9 +153,10 @@ function istBild(el) {
   return !!bg && bg.indexOf('url(') !== -1
 }
 function bildDarunter(e) {
-  var liste = document.elementsFromPoint(e.clientX, e.clientY)
+  var liste = document.querySelectorAll('img, picture')
   for (var i = 0; i < liste.length; i++) {
-    if (liste[i].closest && liste[i].closest('img, picture')) return true
+    var r = liste[i].getBoundingClientRect()
+    if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) return true
   }
   return false
 }
