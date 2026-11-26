@@ -13,11 +13,6 @@ a { color: #0F1B2E; }
 .seite { max-width: 860px; margin: 0 auto; padding: 30px 24px 60px; }
 .kopf { display: flex; justify-content: space-between; font-size: 15px; padding-bottom: 14px; border-bottom: 1px solid #ddd6c8; }
 .kopf a { text-decoration: none; font-weight: 600; }
-.kopf { flex-wrap: wrap; gap: 6px 20px; }
-.oben a { margin-left: 18px; }
-.oben a:first-child { margin-left: 0; }
-.oben a:hover { text-decoration: underline; text-underline-offset: 3px; }
-@media (max-width: 600px) { .kopf { flex-direction: column; } .oben a { margin-left: 14px; } }
 h1 { font-weight: 500; font-size: 36px; line-height: 1.2; margin: 40px 0 16px; }
 h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 .einstieg { font-size: 19px; }
@@ -74,7 +69,7 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 <body>
 <div class="seite">
 
-<div class="kopf"><span>Praxis Brecht, Bullay</span> <span class="oben"><a href="#termin" class="zum-termin">Termin vereinbaren</a> <a href="#" class="wa">WhatsApp</a> <a href="index.html">Zum Entwurf</a></span></div>
+<div class="kopf"><span>Praxis Brecht, Bullay</span> <a href="index.html">Zum Entwurf</a></div>
 
 <h1>Ihre jetzige Seite, kurz von außen angesehen</h1>
 <p class="einstieg">Ich weiß, dass die jetzige Seite nur als Übergang gedacht war. Sie steht seit dem 23. Mai so. Hier ist, was einem Patienten heute beim ersten Besuch auffällt, nur das, was man auf der Seite sieht.</p>
@@ -125,7 +120,7 @@ h2 { font-weight: 500; font-size: 22px; margin: 0 0 8px; }
 <p class="fuss">Stand: 26. November 2026. Bilder: eigene Aufnahmen von hautarzt-bullay.de. <a href="index.html">Zum Entwurf</a></p>
 </div>
 
-<!-- Termin direkt buchen (auch über analyse.html#termin) -->
+<!-- Termin direkt buchen, geht nur per Klick auf Termin buchen -->
 <dialog id="termin">
   <div class="t-kopf"><b>Wann passt es Ihnen?</b> <span>30 Minuten, per Video</span></div>
   <div class="t1">
@@ -231,9 +226,6 @@ document.getElementById('buchen').onclick = function () {
       document.getElementById('wa-ersatz').onclick = function (e) { e.preventDefault(); whatsapp('Hallo Herr Mäding, ich hätte gern den Termin ' + termin + '. Viele Grüße, ' + vn.value.trim()) }
     })
 }
-// Link analyse.html#termin öffnet das Fenster gleich
-if (location.hash == '#termin') auf()
-window.onhashchange = function () { if (location.hash == '#termin') auf() }
 </script>
 </body>
 </html>
